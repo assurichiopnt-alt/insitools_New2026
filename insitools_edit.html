@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSITOOLS - Precision Portable Machining</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'insitools-dark': '#0d233a',  
+                        'insitools-blue': '#1a4971',  
+                        'insitools-red': '#c62828',   
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* ซ่อน Scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* CSS สำหรับสไลด์สินค้า Featured Products ให้เลื่อนอัตโนมัติ */
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+        .slider-track {
+            display: flex;
+            gap: 1.5rem; 
+            width: max-content;
+            animation: scrollLeft 50s linear infinite; 
+        }
+        .slider-track:hover {
+            animation-play-state: paused; 
+        }
+        .product-card {
+            width: 280px; 
+            flex-shrink: 0; 
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-white">
+
+    <header class="bg-insitools-blue text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <a href="insitools_edit.html" class="inline-flex items-center">
+                <img src="logo.png" alt="INSITOOLS logo" class="h-12 w-auto">
+            </a>
+            <nav class="w-full md:w-auto">
+                <ul class="flex flex-wrap items-center justify-center gap-4 text-sm font-medium">
+                    <li><a href="insitools_edit.html" class="text-white border-b-2 border-white pb-1 font-bold">Home</a></li>
+                    <li><a href="products.html" class="hover:text-gray-200 transition duration-150">Products</a></li>
+                    <li><a href="service-rent.html" class="hover:text-gray-200 transition duration-150">Services & Rentals</a></li>
+                    <li><a href="about.html" class="hover:text-gray-200 transition duration-150">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="relative bg-gray-900 text-white py-32 bg-cover bg-center" style="background-image: linear-gradient(rgba(13, 35, 58, 0.85), rgba(13, 35, 58, 0.85)), url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1600');">
+        <div class="max-w-4xl mx-auto text-center px-6">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 uppercase leading-tight">
+                Unrivaled Precision In<br>Portable Machining
+            </h1>
+            <p class="text-gray-300 text-sm md:text-base max-w-2xl mx-auto mb-8 font-light">
+                Committed to delivering high-quality on-site solutions for every interaction, everywhere, 24/7.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-xs font-bold tracking-wider py-3 px-6 rounded transition uppercase">View Products</a>
+                <a href="about.html" class="bg-insitools-red hover:bg-opacity-90 text-white text-xs font-bold tracking-wider py-3 px-6 rounded transition uppercase">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+            <img src="images/home.jpg" alt="INSITOOLS portable machining and welding solutions" class="rounded-lg shadow-md w-full h-80 object-cover">
+        </div>
+        <div>
+            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">About INSITOOLS</span>
+            <h2 class="text-2xl md:text-3xl font-bold text-insitools-dark mb-4 leading-tight">Engineered for Precision. Trusted Worldwide.</h2>
+            <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                INSITOOLS is a global leader in portable machining and welding solutions, empowering industries to perform complex on-site maintenance with minimal downtime. Our machines deliver workshop accuracy right to your field application.
+            </p>
+            <a href="#" class="inline-block bg-insitools-blue hover:bg-opacity-90 text-white text-xs font-bold py-3 px-5 rounded transition uppercase tracking-wider">Learn More About Insitools</a>
+        </div>
+    </section>
+
+    <section class="bg-[#111111] text-white py-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-10 text-center">
+            <h2 class="text-2xl font-bold tracking-wide">Featured Products</h2>
+        </div>
+        
+        <div class="relative w-full overflow-hidden">
+            <div class="slider-track px-4 pb-4">
+                
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800" alt="Portable Plate Bevel" class="w-full h-32 object-cover rounded-md mb-4">
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Portable Plate Bevel</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">PB-10 / PBM-15</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4ac5b1f39d?q=80&w=800" alt="Flange Facer Machine" class="w-full h-32 object-cover rounded-md mb-4">
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Flange Facer Machine</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">Hydraulic Driven</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800" alt="In-Situ Gate Valve Lapping" class="w-full h-32 object-cover rounded-md mb-4">
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">In-Situ Gate Valve Lapping</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">SLP-150 / 200</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=800" alt="Portable Line Boring" class="w-full h-32 object-cover rounded-md mb-4">
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Portable Line Boring</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">PBL-40 / PBL-60</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?q=80&w=800" alt="Portable Milling Machine" class="w-full h-32 object-cover rounded-md mb-4">
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Portable Milling Machine</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">LMM-200 Series</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800" alt="Auto Bore Welder" class="w-full h-32 object-cover rounded-md mb-4">
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Auto Bore Welder</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">ABW-500</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <div class="w-full h-32 bg-gray-100 flex items-center justify-center mb-4 text-xs text-gray-400">[ Pipe Cutting Image ]</div>
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Pipe Cutting Machine</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">Split Frame Technology</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <div class="w-full h-32 bg-gray-100 flex items-center justify-center mb-4 text-xs text-gray-400">[ Hydraulic Power Image ]</div>
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Hydraulic Power Unit</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">HPU-30 / HPU-50</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <div class="w-full h-32 bg-gray-100 flex items-center justify-center mb-4 text-xs text-gray-400">[ Heat Exchanger Image ]</div>
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Heat Exchanger Tools</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">Tube Puller System</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <div class="w-full h-32 bg-gray-100 flex items-center justify-center mb-4 text-xs text-gray-400">[ Lathe Machine Image ]</div>
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">On-Site Lathe Machine</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">PLM-100 Series</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <div class="w-full h-32 bg-gray-100 flex items-center justify-center mb-4 text-xs text-gray-400">[ Plate Bevel Image ]</div>
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Portable Plate Bevel</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">PB-10 / PBM-15</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <div class="w-full h-32 bg-gray-100 flex items-center justify-center mb-4 text-xs text-gray-400">[ Flange Facer Image ]</div>
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Flange Facer Machine</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">Hydraulic Driven</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <div class="w-full h-32 bg-gray-100 flex items-center justify-center mb-4 text-xs text-gray-400">[ Valve Lapping Image ]</div>
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">In-Situ Gate Valve Lapping</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">SLP-150 / 200</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <div class="w-full h-32 bg-gray-100 flex items-center justify-center mb-4 text-xs text-gray-400">[ Line Boring Image ]</div>
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Portable Line Boring</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">PBL-40 / PBL-60</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <div class="w-full h-32 bg-gray-100 flex items-center justify-center mb-4 text-xs text-gray-400">[ Milling Machine Image ]</div>
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Portable Milling Machine</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">LMM-200 Series</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <div class="w-full h-32 bg-gray-100 flex items-center justify-center mb-4 text-xs text-gray-400">[ Auto Bore Welder Image ]</div>
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Auto Bore Welder</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">ABW-500</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <div class="w-full h-32 bg-gray-100 flex items-center justify-center mb-4 text-xs text-gray-400">[ Pipe Cutting Image ]</div>
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Pipe Cutting Machine</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">Split Frame Technology</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <div class="w-full h-32 bg-gray-100 flex items-center justify-center mb-4 text-xs text-gray-400">[ Hydraulic Power Image ]</div>
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Hydraulic Power Unit</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">HPU-30 / HPU-50</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <div class="w-full h-32 bg-gray-100 flex items-center justify-center mb-4 text-xs text-gray-400">[ Heat Exchanger Image ]</div>
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">Heat Exchanger Tools</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">Tube Puller System</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+                <div class="product-card bg-white text-gray-900 rounded-lg p-5 flex flex-col items-center text-center shadow-lg">
+                    <div class="w-full h-32 bg-gray-100 flex items-center justify-center mb-4 text-xs text-gray-400">[ Lathe Machine Image ]</div>
+                    <h4 class="font-bold text-sm text-insitools-dark mb-1">On-Site Lathe Machine</h4>
+                    <p class="text-[11px] text-gray-500 font-semibold mb-4 flex-grow">PLM-100 Series</p>
+                    <a href="products.html" class="bg-insitools-blue hover:bg-opacity-90 text-white text-[11px] font-bold py-2 px-5 rounded transition w-full mt-auto">View Details</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#1a1a1a] text-white py-16 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <span class="text-xs font-bold text-insitools-blue uppercase tracking-widest block mb-1">Solutions By Industry</span>
+            <h2 class="text-2xl font-bold mb-10">Solutions by Industry</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Defense</div>
+                </div>
+                <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Aerospace</div>
+                </div>
+                <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Food & Beverage</div>
+                </div>
+                <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide p-2">Manufacturing &..</div>
+                </div>
+                <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Mining</div>
+                </div>
+                <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1535732759880-bbd5c7265e3f?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Oil & Gas</div>
+                </div>
+                <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide text-center px-1">Power Generation</div>
+                </div>
+                <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Maritime</div>
+                </div>
+                <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Transportation</div>
+                </div>
+                <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
+                    <img src="https://www.climaxportable.com/wp-content/uploads/sites/22/2024/10/Utilities-AdobeStock_491325640-scaled-1-1024x684.jpeg" alt="Utilities infrastructure" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Utilities</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1">Our Network</span>
+            <h2 class="text-2xl font-bold mb-10 text-insitools-dark">Partner Websites</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6 flex flex-col">
+                    <h4 class="font-bold text-lg text-insitools-blue mb-3">Assurich Industries</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed mb-6 flex-grow">A leading provider of industrial machinery, automation systems, and comprehensive engineering solutions to elevate your manufacturing capabilities.</p>
+                    <a href="https://www.assurich.com" target="_blank" class="text-xs font-bold text-insitools-dark hover:text-insitools-red transition inline-flex items-center">Visit Website <span class="ml-1">→</span></a>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6 flex flex-col">
+                    <h4 class="font-bold text-lg text-insitools-blue mb-3">AI-Robotics 928</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed mb-6 flex-grow">Specializing in advanced robotic solutions, including robotic arms and cobots designed for smart manufacturing, precision welding, and automated assembly.</p>
+                    <a href="https://www.ai-robotics928.com" target="_blank" class="text-xs font-bold text-insitools-dark hover:text-insitools-red transition inline-flex items-center">Visit Website <span class="ml-1">→</span></a>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6 flex flex-col relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-insitools-red text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">Coming Soon</div>
+                    
+                    <h4 class="font-bold text-lg text-insitools-blue mb-3">Robot A1</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed mb-6 flex-grow">Our upcoming platform dedicated to next-generation robotic technologies and AI-driven automation systems. Stay tuned for innovative solutions.</p>
+                    <a href="https://www.robota1.com" target="_blank" class="text-xs font-bold text-insitools-dark hover:text-insitools-red transition inline-flex items-center">Visit Website <span class="ml-1">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-insitools-dark text-gray-300 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-xs">
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Join Our Newsletter</h4>
+                <p class="text-gray-400 mb-4 leading-relaxed">Stay up to date with the latest product updates and corporate news.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Enter your email" class="bg-gray-800 border border-gray-700 text-white rounded-l px-3 py-1.5 w-full focus:outline-none">
+                    <button class="bg-insitools-blue text-white px-3 rounded-r font-bold text-xs uppercase">Go</button>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Products & Services</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="products.html" class="hover:text-white transition">Boring Machines</a></li>
+                    <li><a href="products.html" class="hover:text-white transition">Flange Facers</a></li>
+                    <li><a href="products.html" class="hover:text-white transition">Milling Machines</a></li>
+                    <li><a href="products.html" class="hover:text-white transition">Valve Repair Tools</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Industries</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-white transition">Aerospace</a></li>
+                    <li><a href="#" class="hover:text-white transition">Maritime</a></li>
+                    <li><a href="#" class="hover:text-white transition">Power Generation</a></li>
+                    <li><a href="#" class="hover:text-white transition">Transportation</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Contact Us</h4>
+                <p class="text-gray-400 leading-relaxed mb-2">📍 9, Tagore Lane #04-28, 9@Tagore
+Singapore 787472</p>
+                <p class="text-gray-400 mb-2">📞 +65 64591069</p>
+                <p class="text-gray-400">✉️ sales@assurich.com </p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 gap-4">
+            <a href="insitools_edit.html" class="inline-flex items-center">
+                <img src="logo.png" alt="INSITOOLS logo" class="h-10 w-auto">
+            </a>
+            <div>© 2026 INSITOOLS. All rights reserved.</div>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-400">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const featuredProductMatches = [
+            { name: 'PB300 Super Portable Line Boring', model: 'PB300 Super', key: 'PB300super', image: 'https://insitools.com/upload/images/items/pb300-super-portable-line-boring-52.jpg' },
+            { name: 'FDG1650 Flange Facing Machine', model: 'FDG1650', key: 'FDG1650', image: 'images/product-red-blue-ae03cd6c6338.jpg' },
+            { name: 'In-Situ Gate Valve Lapping Machine', model: 'Gate Valve Lapping', key: 'Gate-Valve-Lapping', image: 'https://insitools.com/upload/images/items/in-situ-gate-valve-lapping-machine-31.jpg' },
+            { name: 'Portable Plate Bevel Machine', model: 'Plate Bevel Machine', key: 'Plate-Bevel-Machine', image: 'images/product-red-blue-4cc2df0eb19e.jpg' },
+            { name: 'PFM165 Mini Flange Facer', model: 'PFM165', key: 'PFM165', image: 'images/product-red-blue-1fe41edf59a9.jpg' },
+            { name: 'ABW 350/360 Bore Welder', model: 'ABW 350/360', key: 'ABW350-360', image: 'images/product-red-blue-78f84f4ba1cd.jpg' },
+            { name: 'Pipe Cold Cutting & Bevel Machine', model: 'Pipe Cutters', key: 'Pipe-Cold-Cutting', image: 'https://insitools.com/upload/images/items/pipe-cold-cutting-bevel-machine-27.jpg' },
+            { name: 'PB 800BL/90 Portable Boring Machine', model: 'PB 800BL/90', key: 'PB800BL-90', image: 'images/product-red-blue-3e7fc6cefcd2.jpg' },
+            { name: 'LP3 Series Torque Wrench Pump', model: 'LP3 Series', key: 'LP3-Pump', image: 'images/product-red-blue-56441013b531.jpg' },
+            { name: 'On-Site Lathe Machine', model: 'Lathe Machine', key: 'Lathe-Machine', image: 'images/product-red-blue-27493aa7bd17.jpg' }
+        ];
+
+        document.querySelectorAll('.slider-track .product-card').forEach((card, index) => {
+            const match = featuredProductMatches[index % featuredProductMatches.length];
+            if (!match) return;
+
+            let image = card.querySelector('img');
+            if (!image) {
+                image = document.createElement('img');
+                card.prepend(image);
+            }
+            image.src = match.image;
+            image.alt = match.name;
+            image.loading = 'lazy';
+            image.className = 'w-full h-32 object-contain bg-white rounded-md mb-4';
+            card.querySelector('div.w-full.h-32.bg-gray-100')?.remove();
+            card.querySelector('h4').textContent = match.name;
+            card.querySelector('p').textContent = match.model;
+            card.querySelector('a').href = `product-detail.html?model=${encodeURIComponent(match.key)}`;
+        });
+    </script>
+</body>
+</html>

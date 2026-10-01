@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSITOOLS - Product Technical Specifications</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'insitools-dark-blue': '#1a4971', 
+                        'insitools-red': '#c62828',       
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-gray-50 flex flex-col min-h-screen">
+
+    <header class="bg-insitools-dark-blue text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <a href="insitools_edit.html" class="inline-flex items-center">
+                <img src="logo.png" alt="INSITOOLS logo" class="h-12 w-auto">
+            </a>
+            <nav class="w-full md:w-auto">
+                <ul class="flex flex-wrap items-center justify-center gap-4 text-sm font-medium">
+                    <li><a href="insitools_edit.html" class="hover:text-gray-300 transition duration-150">Home</a></li>
+                    <li><a href="products.html" class="text-white font-bold border-b-2 border-white pb-1">Products</a></li>
+                    <li><a href="service-rent.html" class="hover:text-gray-300 transition duration-150">Services & Rentals</a></li>
+                    <li><a href="about.html" class="hover:text-gray-300 transition duration-150">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="bg-white border-b border-gray-200 py-4">
+        <div class="max-w-7xl mx-auto px-6">
+            <nav class="text-xs text-gray-500 font-semibold uppercase tracking-wider">
+                <a href="products.html" class="hover:text-insitools-red">Our Products</a> 
+                <span class="mx-2">/</span> 
+                <span id="breadcrumb-category" class="text-gray-400">Category</span>
+                <span class="mx-2">/</span> 
+                <span id="breadcrumb-model" class="text-gray-800">Model</span>
+            </nav>
+        </div>
+    </div>
+
+    <main class="flex-grow w-full max-w-7xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <div class="lg:col-span-5 space-y-6">
+                <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm flex flex-col items-center justify-center min-h-[380px] text-center overflow-hidden">
+                    <img id="product-image" src="" alt="Product image" class="hidden w-full h-full object-contain rounded-lg">
+                    <div id="product-image-placeholder" class="text-gray-300 mb-4">
+                        <svg class="w-24 h-24 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-14L4 7m8 4v10M4 7v10l8 4" />
+                        </svg>
+                    </div>
+                    <span id="product-image-text" class="text-sm font-bold text-gray-400 uppercase tracking-wider block">Product Image Placeholder</span>
+                </div>
+
+                <a id="pdf-download-btn" href="#" target="_blank" rel="noopener noreferrer" class="hidden w-full bg-gray-800 hover:bg-black text-white text-center text-xs font-bold py-4 px-6 rounded-lg transition tracking-widest flex items-center justify-center space-x-3 uppercase shadow-sm">
+                    <svg class="w-5 h-5 text-insitools-red" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Open / Download Technical Data Sheet (PDF)</span>
+                </a>
+                <p id="pdf-unavailable-message" class="hidden text-center text-xs leading-relaxed text-gray-500">No downloadable technical document is available for this model on INSITOOLS.</p>
+            </div>
+
+            <div class="lg:col-span-7 space-y-8">
+                <div>
+                    <span id="product-tag-category" class="inline-block bg-insitools-dark-blue text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded mb-3">CATEGORY</span>
+                    <h2 id="product-title-model" class="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">PRODUCT MODEL</h2>
+                    <div class="w-16 h-1 bg-insitools-red mt-4 rounded"></div>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex flex-wrap items-center justify-between gap-3">
+                        <h3 class="text-xs font-bold text-gray-700 uppercase tracking-widest">Technical Specifications</h3>
+                    </div>
+                    <dl class="divide-y divide-gray-100" id="specs-container"></dl>
+                    <p id="specs-message" class="hidden px-6 py-5 text-sm leading-relaxed text-gray-500"></p>
+                </div>
+
+                <div class="bg-white border-2 border-insitools-dark-blue rounded-xl p-6 md:p-8 shadow-md">
+                    <h3 class="text-lg font-bold text-insitools-dark-blue uppercase tracking-wide mb-2 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-insitools-red" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                        Request A Quotation
+                    </h3>
+                    <p class="text-gray-500 text-xs mb-6">Fill in your requirements to receive a quotation and consultation from our engineering sales team</p>
+                    
+                    <form class="space-y-4" onsubmit="return sendQuoteToWhatsApp(event);">
+                        <input type="hidden" id="form-product-model" name="product_model" value="">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Contact Name *</label>
+                                <input type="text" id="quote-contact-name" required class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-insitools-dark-blue" placeholder="John Smith">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Company / Organization *</label>
+                                <input type="text" id="quote-company" required class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-insitools-dark-blue" placeholder="Company Name Ltd.">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Email Address *</label>
+                                <input type="email" id="quote-email" required class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-insitools-dark-blue" placeholder="john@company.com">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Phone Number *</label>
+                                <input type="tel" id="quote-phone" required class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-insitools-dark-blue" placeholder="+1-234-567-8900">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Additional Details / Quantity Needed *</label>
+                            <textarea required id="quote-details" rows="4" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-insitools-dark-blue" placeholder="Specify job requirements, dimensions, technical questions, or any additional details for our engineering team to assess..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-insitools-red hover:bg-red-800 text-white font-bold py-3 px-6 rounded text-xs tracking-widest uppercase transition duration-150 shadow shadow-red-700/30">
+                            Send via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // ฐานข้อมูลสเปกเด่นแยกตามชื่อรุ่นสินค้าที่คุณกำหนดมาทั้งหมด 30 กว่ารายการ
+        const productsDatabase = {
+            // 1. Boring Machines
+            'BB40': { cat: 'Boring Machines', name: 'BB40 Portable Boring Machine', image: 'images/bb40.jpg', specs: { 'Boring Bar Diameter': '40 mm', 'Boring Diameter Range': '45 - 150 mm', 'Axial Stroke': '300 mm', 'Power Feed Options': 'Electric / Pneumatic' } },
+            'BB50': { cat: 'Boring Machines', name: 'BB50 Portable Boring Machine', image: 'images/bb50.jpg', specs: { 'Boring Bar Diameter': '50 mm', 'Boring Diameter Range': '55 - 250 mm', 'Axial Stroke': '400 mm', 'Power Feed Options': 'Hydraulic / Electric' } },
+            'BB60': { cat: 'Boring Machines', name: 'BB60 Portable Boring Machine', image: 'images/bb60.jpg', specs: { 'Boring Bar Diameter': '60 mm', 'Boring Diameter Range': '65 - 300 mm', 'Axial Stroke': '400 mm', 'Power Feed Options': 'Hydraulic / Pneumatic' } },
+            'BB80': { cat: 'Boring Machines', name: 'BB80 Portable Boring Machine', image: 'images/bb80.jpg', specs: { 'Boring Bar Diameter': '80 mm', 'Boring Diameter Range': '90 - 500 mm', 'Axial Stroke': '600 mm', 'Power Feed Options': 'Heavy-Duty Hydraulic' } },
+            'BB100': { cat: 'Boring Machines', name: 'BB100 Heavy Boring Machine', image: 'images/bb100.jpg', specs: { 'Boring Bar Diameter': '100 mm', 'Boring Diameter Range': '150 - 800 mm', 'Axial Stroke': '800 mm', 'Power Feed Options': 'Hydraulic Drive Unit' } },
+            'BB120': { cat: 'Boring Machines', name: 'BB120 Heavy Boring Machine', image: 'images/bb120.jpg', specs: { 'Boring Bar Diameter': '120 mm', 'Boring Diameter Range': '200 - 1000 mm', 'Axial Stroke': '1000 mm', 'Power Feed Options': 'Hydraulic Drive' } },
+            'BB160': { cat: 'Boring Machines', name: 'BB160 Ultra Boring Machine', image: 'images/bb160.jpg', specs: { 'Boring Bar Diameter': '160 mm', 'Boring Diameter Range': '250 - 1500 mm', 'Axial Stroke': '1200 mm', 'Power Feed Options': 'Servo Hydraulic Controls' } },
+            'BB200': { cat: 'Boring Machines', name: 'BB200 Industrial Boring Machine', image: 'images/bb200.jpg', specs: { 'Boring Bar Diameter': '200 mm', 'Boring Diameter Range': '350 - 2200 mm', 'Axial Stroke': '1500 mm', 'Power Feed Options': 'Custom Industrial Drive' } },
+            
+            // 2. Flange Facers
+            'PFF350': { cat: 'Flange Facers', name: 'PFF350 Portable Flange Facer', specs: { 'Facing Diameter': '0 - 350 mm (0 - 14")', 'Clamping Diameter': 'Internal: 50 - 300 mm', 'Tool Post Travel': '50 mm', 'Drive Source': 'Pneumatic / Manual' } },
+            'PFF610': { cat: 'Flange Facers', name: 'PFF610 Flange Facing Machine', specs: { 'Facing Diameter': '50 - 610 mm (2 - 24")', 'Clamping Diameter': 'Internal: 100 - 550 mm', 'Feed Rates': 'Automatic Continuous Feed', 'Drive Source': 'Pneumatic (3.5 HP)' } },
+            'PFF1000': { cat: 'Flange Facers', name: 'PFF1000 Flange Facing Machine', specs: { 'Facing Diameter': '150 - 1000 mm (6 - 40")', 'Clamping Diameter': 'Internal Rig', 'Surface Finish': 'ASME Standard Stock Finish', 'Drive Source': 'Hydraulic / Pneumatic' } },
+            'PFF1500': { cat: 'Flange Facers', name: 'PFF1500 Flange Facing Machine', specs: { 'Facing Diameter': '300 - 1500 mm (12 - 60")', 'Mounting Base': 'ID Mounting System', 'Tool Post Rotation': '360 Degrees swivel', 'Drive Source': 'High-Torque Hydraulic' } },
+            'PFF2000': { cat: 'Flange Facers', name: 'PFF2000 Large Flange Facer', specs: { 'Facing Diameter': '500 - 2000 mm (20 - 80")', 'Mounting Type': 'Heavy duty internal chuck', 'Feed Options': 'Bi-directional Auto Feed', 'Drive Source': 'Hydraulic 15 HP' } },
+            'PFF3000': { cat: 'Flange Facers', name: 'PFF3000 Ultra Flange Facer', specs: { 'Facing Diameter': '1000 - 3000 mm (40 - 120")', 'Applications': 'Wind Turbine / Crane Slewing Bearings', 'Accuracy': 'Flatness within 0.05 mm', 'Drive Source': 'Electro-Hydraulic Station' } },
+
+            // 3. Milling Machines
+            'PMM3000': { cat: 'Milling Machines', name: 'PMM3000 Linear Milling Machine', specs: { 'X-Axis Stroke': '3000 mm', 'Y-Axis Stroke': '250 mm', 'Z-Axis Stroke': '100 mm', 'Spindle Taper': 'NT40 / NT50', 'Drive Type': 'Hydraulic' } },
+            'PMM4000': { cat: 'Milling Machines', name: 'PMM4000 Portable Milling Machine', specs: { 'X-Axis Stroke': '4000 mm', 'Y-Axis Stroke': '300 mm', 'Z-Axis Stroke': '150 mm', 'Spindle Speed': '0 - 600 RPM Variable', 'Drive Type': 'Heavy Hydraulic Pack' } },
+            'Circular-Milling': { cat: 'Milling Machines', name: 'Circular Milling Machine Series', specs: { 'Milling Diameter': '1000 - 5000 mm', 'Mounting Method': 'Internal / External Bolt-down', 'Spindle Taper': 'ISO 50 Standard', 'Application': 'Large circular flange milling' } },
+            'Gantry-Milling': { cat: 'Milling Machines', name: 'Gantry Milling Machine Series', specs: { 'Bed Configurations': 'Custom Modular Gantry', 'X-Y-Z Custom Scale': 'Available on request', 'Spindle Power': 'Up to 25 HP', 'Usage': 'Heat Exchanger / Structural Beds' } },
+            'ILMD1000': { cat: 'Milling Machines', name: 'ILMD1000 Gantry Milling Machine', sourceModel: 'LMD1000', sourceUrl: 'https://joysungportable.com/items/lmd1000-gantry-milling-machine', specs: { 'X-Axis Stroke': '1000 mm', 'Y-Axis Stroke Options': '1000 / 1500 / 2000 / 3000 mm', 'Z-Axis Stroke': '250 mm', 'Variant Models': 'LMD1010 / LMD1015 / LMD1020', 'Auto Feed': 'X / Y axes', 'Spindle Taper': 'NT40 or NT50', 'Maximum Cutter Diameter': '160 mm (NT40) / 250 mm (NT50)', 'Feed Rate': '35 - 1000 mm/min', 'Spindle Speed': '0 - 740 RPM', 'Drive Power': 'Hydraulic / Pneumatic' } },
+            'ILMD2000': { cat: 'Milling Machines', name: 'ILMD2000 Gantry Milling Machine', sourceModel: 'LMD2000', sourceUrl: 'https://joysungportable.com/items/lmd2000-gantry-milling-machine', specs: { 'X-Axis Stroke': '2000 mm', 'Y-Axis Stroke Options': '1000 / 1500 / 2000 / 3000 mm', 'Z-Axis Stroke': '250 mm', 'Variant Models': 'LMD2010 / LMD2020 / LMD2030', 'Auto Feed': 'X / Y axes', 'Spindle Taper': 'NT40 or NT50', 'Maximum Cutter Diameter': '160 mm (NT40) / 250 mm (NT50)', 'Feed Rate': '35 - 1000 mm/min', 'Spindle Speed': '0 - 740 RPM', 'Drive Power': 'Hydraulic / Pneumatic / Electric' } },
+            'ILMD3000': { cat: 'Milling Machines', name: 'ILMD3000 Gantry Milling Machine', sourceModel: 'LMD3000', sourceUrl: 'https://joysungportable.com/items/lmd3000-gantry-milling-machine', specs: { 'X-Axis Stroke': '3000 mm', 'Y-Axis Stroke Options': '1000 / 2000 / 3000 mm', 'Z-Axis Stroke': '250 mm', 'Variant Models': 'LMD3010 / LMD3020 / LMD3030', 'Auto Feed': 'X / Y axes', 'Spindle Taper': 'NT40 or NT50', 'Maximum Cutter Diameter': '160 mm (NT40) / 250 mm (NT50)', 'Feed Rate': '35 - 750 mm/min', 'Spindle Speed': '0 - 740 RPM', 'Drive Power': 'Hydraulic / Pneumatic / Electric' } },
+            'ILMD4000': { cat: 'Milling Machines', name: 'ILMD4000 Gantry Milling Machine', sourceModel: 'LMD4000', sourceUrl: 'https://joysungportable.com/items/lmd4000-gantry-milling-machine', specs: { 'X-Axis Stroke': '4000 mm', 'Y-Axis Stroke Options': '1000 / 1500 / 2000 / 3000 mm', 'Z-Axis Stroke': '250 mm', 'Variant Models': 'LMD4010 / LMD4020 / LMD4030', 'Auto Feed': 'X / Y axes', 'Spindle Taper': 'NT40 or NT50', 'Maximum Cutter Diameter': '160 mm (NT40) / 250 mm (NT50)', 'Feed Rate': '35 - 750 mm/min', 'Spindle Speed': '0 - 740 RPM', 'Drive Power': 'Hydraulic / Pneumatic' } },
+            'ILMD5000': { cat: 'Milling Machines', name: 'ILMD5000 Gantry Milling Machine', sourceModel: 'LMD5000', sourceUrl: 'https://joysungportable.com/items/lmd5000-gantry-milling-machine', specs: { 'X-Axis Stroke': '5000 mm', 'Y-Axis Stroke Options': '1000 / 2000 / 3000 mm', 'Z-Axis Stroke': '250 mm', 'Variant Models': 'LMD5010 / LMD5020 / LMD5030', 'Auto Feed': 'X / Y axes', 'Spindle Taper': 'NT40 or NT50', 'Maximum Cutter Diameter': '160 mm (NT40) / 250 mm (NT50)', 'Feed Rate': '35 - 750 mm/min', 'Spindle Speed': '0 - 740 RPM', 'Drive Power': 'Hydraulic / Pneumatic' } },
+
+            // 4. Bore Welders
+            'BW300': { cat: 'Bore Welders', name: 'BW300 Automated Bore Welder', specs: { 'Welding ID Range': '40 - 300 mm', 'Axial Stroke': '200 mm', 'Wire Size Capability': '0.8 - 1.2 mm', 'Process': 'MIG / GMAW Auto Overlay' } },
+            'BW350': { cat: 'Bore Welders', name: 'BW350 Automated Bore Welder', specs: { 'Welding ID Range': '40 - 350 mm', 'Axial Stroke': '300 mm', 'Step Interval': 'Adjustable Auto Feed', 'Interface': 'Integrated Control Box' } },
+            'BW360': { cat: 'Bore Welders', name: 'BW360 Advanced Bore Welder', specs: { 'Welding ID Range': '35 - 400 mm', 'Axial Stroke': '400 mm', 'Torch Setup': 'Quick-connect system', 'Feature': 'Pairs perfectly with BB50 Boring bar' } },
+            'BW500': { cat: 'Bore Welders', name: 'BW500 Heavy-Duty Bore Welder', specs: { 'Welding ID Range': '100 - 800 mm', 'Axial Stroke': '500 mm', 'Rotational Rotation': 'Bi-directional auto spin', 'Usage': 'Large Excavator Pin Re-welding' } },
+
+            // 5. Valve Solution
+            'VM380': { cat: 'Valve Solution', name: 'VM380 Valve Machining Center', specs: { 'Max Grinding Range': 'Dia 380 mm', 'Sub-category': 'Valve Seat Boring / Grinding', 'Mounting': 'Quick-align centralizer', 'Operation': 'Pneumatic Drive' } },
+            'VM580': { cat: 'Valve Solution', name: 'VM580 Valve Machining Center', specs: { 'Max Grinding Range': 'Dia 580 mm', 'Application': 'In-line safety valve testing/grinding', 'Tilt Base Range': '0 - 15 Degrees adjustable', 'Drive': 'Pneumatic' } },
+            'VM800': { cat: 'Valve Solution', name: 'VM800 Valve Machining Center', specs: { 'Max Grinding Range': 'Dia 800 mm', 'Structure': 'Reinforced dual columns guide', 'Accuracy': 'Industrial High Precision Rating', 'Drive': 'Hydraulic Pack Driven' } },
+            'Gate-Valve-Lapping': { cat: 'Valve Solution', name: 'In-Situ Gate Valve Lapping Machine', specs: { 'Valve Size Range': 'DN 50 - DN 600', 'Lapping Plates': 'High resistance abrasive discs', 'Operating Depth': 'Up to 1000 mm immersion', 'Drive Source': 'Pneumatic / 220V Electric' } },
+            'Globe-Valve-Lapping': { cat: 'Valve Solution', name: 'In-Situ Globe Valve Flat Seat Lapping Machine', specs: { 'Valve Size Range': 'DN 15 - DN 300', 'Seat Angle Design': 'Flat / Taper seats compatibility', 'Lapping Media': 'Boron Carbide Compounds', 'Portability': 'Lightweight single technician setup' } },
+            'Valve-Grinding': { cat: 'Valve Solution', name: 'Portable Valve Grinding Machine', specs: { 'Grinding Diameter': 'Up to 400 mm', 'Application': 'High-pressure safety steam valves', 'Spindle Feed': 'Micro-metric fine adjustment', 'Speed Control': 'Infinitely Variable Pneumatic Controller' } },
+
+            // 6. Pipe Cutting
+            'PPCM-Series': { cat: 'Pipe Cutting', name: 'PPCM Series Pipe Cutting & Beveling Machine', specs: { 'Pipe OD Range': 'Custom Multi-Scale', 'Beveling Prep Profiles': 'V / J / U type preps', 'Wall Thickness Cap': 'Up to 50 mm carbon steel', 'Drive Unit': 'Hydraulic Controller Pack' } },
+            'Split-Frame-2-6': { cat: 'Pipe Cutting', name: 'Split Frame Pipe Cutting Machine 2–6"', specs: { 'Working OD Range': '60.3 - 168.3 mm (2 - 6 Inch)', 'Clearance Requirement': 'Low axial & radial clearance design', 'Cutting Speed': 'Controlled Variable RPM', 'Drive Motor': 'Pneumatic / Electric interchangeable' } },
+            'Split-Frame-6-12': { cat: 'Pipe Cutting', name: 'Split Frame Pipe Cutting Machine 6–12"', specs: { 'Working OD Range': '168.3 - 323.8 mm (6 - 12 Inch)', 'Frame Type': 'Split Ring Aluminum Body', 'Lubrication': 'Integrated Tool Cooling Mount', 'Drive Motor': 'Heavy Pneumatic Motor' } },
+            'Split-Frame-12-24': { cat: 'Pipe Cutting', name: 'Split Frame Pipe Cutting Machine 12–24"', specs: { 'Working OD Range': '323.8 - 610.0 mm (12 - 24 Inch)', 'Star Feed Mechanism': 'Automatic Trip Feed', 'Tool Slides': 'Dual severe-duty slide toolposts', 'Drive Motor': 'Hydraulic motor setup option' } },
+            'Split-Frame-24-36': { cat: 'Pipe Cutting', name: 'Split Frame Pipe Cutting Machine 24–36"', specs: { 'Working OD Range': '610.0 - 914.4 mm (24 - 36 Inch)', 'Structure': 'Rigid steel split ring frame', 'Application': 'Oil / Gas Pipeline mainline cold cutting', 'Drive Motor': 'High fluid volume Hydraulic Drive' } },
+            'Split-Frame-36-48': { cat: 'Pipe Cutting', name: 'Split Frame Pipe Cutting Machine 36–48"', specs: { 'Working OD Range': '914.4 - 1219.2 mm (36 - 48 Inch)', 'Clamping Jaws': '12 Point heavy jaw system', 'Safety Standard': 'Cold cutting system (No heat/spark)', 'Drive Motor': 'Dual Hydraulic Drive Ports' } },
+
+            // 7. Hydraulic Tools
+            'Hydraulic-Power-Pack': { cat: 'Hydraulic Tools', name: 'Hydraulic Power Pack Unit', specs: { 'Max Pressure Output': '700 Bar (10,000 PSI)', 'Flow Rate': 'Custom Multi-stage high flow', 'Tank Reservoir': '40 / 60 / 100 Liters stainless steel', 'Engine Type': 'Electric Motor / Diesel / Pneumatic' } },
+            'Hydraulic-Torque-Wrench': { cat: 'Hydraulic Tools', name: 'Hydraulic Torque Wrench Series', specs: { 'Torque Range Capability': 'Up to 50,000 Nm', 'Material Profile': 'Aircraft-grade Aluminum-Titanium alloy', 'Square Drive Size': '3/4" to 2-1/2" drive sizes', 'Swivel Joint': '360 x 180 multi-position swivel multi-hose' } },
+            'Hydraulic-Cylinder': { cat: 'Hydraulic Tools', name: 'Heavy Lifting Hydraulic Cylinder', specs: { 'Lifting Capacity': '10 - 1000 Tons scale', 'Stroke Displacement': '50 - 300 mm range', 'Cylinder Type': 'Single/Double Acting, Low-height flat options', 'Max Operating Pressure': '700 Bar Rated' } },
+            'Hydraulic-Pump': { cat: 'Hydraulic Tools', name: 'High-Pressure Hydraulic Pump', specs: { 'Pump Action Style': 'Hand / Foot / Air-Hydraulic Turbo pump', 'Working Pressure': '700 Bar max output', 'Valve Configuration': '3-Way / 4-Way manual directional controls', 'Oil Usable Vol': 'From 2.5 to 10 Liters standard' } }
+        };
+
+        const linkedProductInfo = {
+            'Plate-Bevel-Machine': { cat: 'Pipe Cutters', name: 'Portable Plate Bevel Machine', sourceModel: 'Portable Plate Bevel Machine', sourceUrl: 'https://insitools.com/pipe-cutters/portable-plate-bevel-machine.html', specs: {} },
+            'FDG1650': { cat: 'Flange Facers', name: 'FDG1650 Flange Facing Machine', sourceModel: 'FDG1650', sourceUrl: 'https://insitools.com/facing-machine/fdg1650-flange-facing-machine.html', specs: { 'Facing range': '20.0–65.0 in', 'Clamping range': '20.0–59.0 in', 'Mounting': 'Internal mount; supplied with three mounting bases' } },
+            'PFM165': { cat: 'Flange Facers', name: 'PFM165 Mini Flange Facer', sourceModel: 'PFM165', sourceUrl: 'https://insitools.com/facing-machine/pfm165.html', specs: { 'Facing diameter': '25.4–165 mm', 'Clamping range': '25.4–152.4 mm', 'Weight': '7.5 kg', 'Power source': 'Hand powered' } },
+            'ABW350-360': { cat: 'Bore Welders', name: 'ABW 350/360 Bore Welder', sourceModel: 'ABW 350/360', sourceUrl: 'https://insitools.com/bore-welder/abw-350-360.html', specs: { 'Welding positions': 'ID, OD and facing', 'Step size': 'Standard step size', 'Welding duration': 'Long-duration welding', 'Current control': 'Adjustable amperage', 'Torch': 'Telescopic torch for continuous wire welding' } },
+            'PB800BL-90': { cat: 'Boring Machines', name: 'PB 800BL/90 Portable Boring Machine', sourceModel: 'PB 800BL/90', sourceUrl: 'https://insitools.com/boring-machine/pb-800bl-90.html', specs: { 'Frame': 'Aluminum alloy', 'Feed': 'Manual and automatic feed', 'Facing tool': 'Optional facing tool available', 'Mounting': 'Spherical bearing mount system' } },
+            'Pipe-Cold-Cutting': { cat: 'Pipe Cutters', name: 'Pipe Cold Cutting & Bevel Machine', sourceModel: 'Pipe Cold Cutting & Bevel Machine', sourceUrl: 'https://insitools.com/pipe-cutters/pipe-cold-cutting-bevel-machine.html', specs: { 'Pipe outside diameter': '3/4–56 in (DN20–DN1400)', 'Operations': 'Cold cutting, beveling, end preparation, counterboring', 'Frame': 'Split frame mounts around in-line pipe or fittings' } },
+            'Lathe-Machine': { cat: 'Boring Machines', name: 'On-Site Lathe Machine', sourceModel: 'Lathe machine image listing', sourceUrl: 'https://insitools.com/boring-machine.html', specs: {} },
+            'LP3-Pump': { cat: 'Hydraulic Tools', name: 'LP3 Series Torque Wrench Pump', sourceModel: 'LP3 Series Torque Wrench Pump', sourceUrl: 'https://insitools.com/hydraulic-tools/lp3-series-torque-wrench-pump.html', specs: { 'Working pressure': '40–700 bar', 'Pump stages': 'Compact automatic three-stage flow', 'Wrench connections': 'One or two wrenches; up to four with manifold', 'Continuous operation': 'Designed for up to 24 hours' } },
+            'BB5000': { cat: 'Boring Machines', name: 'BB5000 Portable Boring Machine', sourceModel: 'PB 200 (INSITOOLS source model)', sourceUrl: 'https://insitools.com/boring-machine/working-on-your-site.html#specfications', specs: { 'Boring capacity': '200 mm dia', 'Boring bar diameter': '40 mm dia', 'Electric motor': '1.67 hp; built-in variable speed control; mechanical 2-speed control', 'Boring stroke': '300 mm' } },
+            'BB4500': { cat: 'Boring Machines', name: 'BB4500 Portable Boring Machine', sourceModel: 'PB 400 (INSITOOLS source model)', sourceUrl: 'https://insitools.com/boring-machine/pb400.html', specs: { 'Boring capacity': '400 mm dia', 'Boring bar diameter': '50 mm (optional 30 mm dia)', 'Electric motor': '1.8 kW; built-in variable speed control; mechanical 2-speed control', 'Boring stroke': '350 / 600 / 800 mm' } },
+            'BB6100': { cat: 'Boring Machines', name: 'BB6100 Portable Boring Machine', sourceModel: 'PB 600 (INSITOOLS source model)', sourceUrl: 'https://insitools.com/boring-machine/pb-600.html', specs: { 'Boring capacity': '600 mm dia standard', 'Boring bar diameter': '60 mm dia', 'Electric motor': '1.8 kW; built-in variable speed control; mechanical 2-speed control', 'Boring stroke': '300 / 600 / 800 mm' } },
+            'BB7100': { cat: 'Boring Machines', name: 'BB7100 Heavy Boring Machine', sourceModel: 'PB 800/90 (INSITOOLS source model)', sourceUrl: 'https://insitools.com/boring-machine/pb-800-90.html', specs: { 'Frame': 'Aluminum alloy', 'Feed': 'Manual and automatic feed', 'Facing tool': 'Optional facing tool available', 'Mounting': 'Spherical bearing mount system' } },
+            'PB300super': { cat: 'Boring Machines', name: 'PB300 Super High Precision Boring', sourceModel: 'PB300 Super', sourceUrl: 'https://insitools.com/boring-machine/pb300-super-portable-line-boring.html', specs: {} },
+            'FF5300': { cat: 'Flange Facers', name: 'FF5300 Flange Facer', sourceModel: 'PFM 350 (INSITOOLS source model)', sourceUrl: 'https://insitools.com/facing-machine/pfm-350.html', specs: { 'Minimum facing diameter': '25.4 mm', 'Maximum facing diameter': '350 mm', 'Tool post travel': '70 mm', 'Machine weight': '70 kg', 'Power option': 'Manual hand drive' } },
+            'FF6300': { cat: 'Flange Facers', name: 'FF6300 Flange Facer', sourceModel: 'PFF 610 (INSITOOLS source model)', sourceUrl: 'https://insitools.com/facing-machine/pff-610.html', specs: { 'Minimum facing diameter': '150 mm', 'Maximum facing diameter': '610 mm', 'RPM': '0–35', 'Tool post travel': '100 m (as listed by INSITOOLS)', 'Feed rates': '0.16 / 0.28 / 0.46 mm/rev', 'Power options': 'Servo 1 kW / Pneumatic 2.2 kW / Hydraulic unit 10 HP' } },
+            'FF7200': { cat: 'Flange Facers', name: 'FF7200 Flange Facer', sourceModel: 'FDG1000 (INSITOOLS source model)', sourceUrl: 'https://insitools.com/facing-machine/fdg1000-flange-facer.html', specs: { 'Facing range': '150–1000 mm (6–40 in)', 'Clamping range': '150–860 mm (6–34 in)', 'Applications': 'Seal groove machining, weld preparation, counterboring and heat exchanger repair' } },
+            'FF8200': { cat: 'Flange Facers', name: 'FF8200 Heavy Flange Facer', sourceModel: 'FDG1650 (INSITOOLS source model)', sourceUrl: 'https://insitools.com/facing-machine/fdg1650-flange-facing-machine.html', specs: { 'Facing range': '20.0–65.0 in', 'Clamping range': '20.0–59.0 in', 'Mounting': 'Internal mount; supplied with three mounting bases' } },
+            'BW3000': { cat: 'Bore Welders', name: 'BW3000 Automated Welder', sourceModel: 'ABW 350/360 (INSITOOLS source model)', sourceUrl: 'https://insitools.com/bore-welder/abw-350-360.html', specs: { 'Welding positions': 'ID, OD and facing', 'Step size': 'Standard step size', 'Welding duration': 'Long-duration welding', 'Current control': 'Adjustable amperage', 'Torch': 'Telescopic torch for continuous wire welding' } },
+            'BW1000': { cat: 'Bore Welders', name: 'BW1000 Heavy Bore Welder', sourceModel: 'ABW 350/360 (INSITOOLS source model)', sourceUrl: 'https://insitools.com/bore-welder/abw-350-360.html', specs: { 'Welding positions': 'ID, OD and facing', 'Step size': 'Standard step size', 'Welding duration': 'Long-duration welding', 'Current control': 'Adjustable amperage', 'Torch': 'Telescopic torch for continuous wire welding' } },
+            'Valve-Lapping-Grinding': { cat: 'Valve Solution', name: 'Valve Lapping/Grinding Machines', sourceModel: 'In-Situ Gate Valve Lapping Machine', sourceUrl: 'https://insitools.com/valve-grinding-machine/in-situ-gate-valve-lapping-machine.html', specs: { 'Valve types': 'Gate valves, parallel slide valves and swing check valves', 'Application': 'Grinds and laps body seats and wedge seats in-situ without dismantling the valve' } },
+            'Valve-Testing-Benches': { cat: 'Valve Solution', name: 'Valve Testing Benches', sourceModel: 'Valve testing category', sourceUrl: 'https://insitools.com/vm-valve-testing-machine.html', specs: {} },
+            'Clamshell-Pipe-Cutters': { cat: 'Pipe Cutting', name: 'Clamshell Pipe Cutters', sourceModel: 'Pipe Cold Cutting & Bevel Machine', sourceUrl: 'https://insitools.com/pipe-cutters/pipe-cold-cutting-bevel-machine.html', specs: { 'Pipe outside diameter': '3/4–56 in (DN20–DN1400)', 'Operations': 'Cold cutting, beveling, end preparation and counterboring', 'Frame': 'Split frame mounts around in-line pipe or fittings' } },
+            'Tube-Expanders-Bevelers': { cat: 'Pipe Cutting', name: 'Tube Expanders & Bevelers', sourceModel: 'Pipe End Bevel Machine - ID Mount', sourceUrl: 'https://insitools.com/pipe-cutters/pipe-end-bevel-machine-id-mount.html', specs: { 'Mounting': 'Expandable mandrel mounts against the inside diameter of the pipe', 'Bevel tooling': 'Tool bits can be selected for material and bevel angle; custom tooling is available' } },
+            'Hydraulic-Power-Units': { cat: 'Hydraulic Tools', name: 'Hydraulic Power Units (HPU)', sourceModel: 'Hydraulic Tools category', sourceUrl: 'https://insitools.com/products/hydraulic-tools.html', specs: {} },
+            'Hydraulic-Torque-Wrenches': { cat: 'Hydraulic Tools', name: 'Hydraulic Torque Wrenches', sourceModel: 'IBT Series Square Drive Hydraulic Torque Wrench', sourceUrl: 'https://insitools.com/hydraulic-tools/ibt-series-square-drive-hydraulic-torque-wrench.html', specs: { 'Maximum working pressure': '70 MPa', 'Accuracy': '±3%', 'Torque range': '112–72,000 N·m across 10 models', 'Swivel': '360° × 180°', 'Material': 'Aluminum-titanium alloy' } }
+        };
+
+        const linkedProductImages = {
+            'Plate-Bevel-Machine': 'images/product-red-blue-4cc2df0eb19e.jpg',
+            'FDG1650': 'images/product-red-blue-ae03cd6c6338.jpg',
+            'PFM165': 'images/product-red-blue-1fe41edf59a9.jpg',
+            'ABW350-360': 'images/product-red-blue-78f84f4ba1cd.jpg',
+            'PB800BL-90': 'images/product-red-blue-3e7fc6cefcd2.jpg',
+            'Pipe-Cold-Cutting': 'images/product-red-blue-2dae5dcea1df.jpg',
+            'Lathe-Machine': 'images/product-red-blue-27493aa7bd17.jpg',
+            'LP3-Pump': 'images/product-red-blue-56441013b531.jpg',
+            'Gate-Valve-Lapping': 'images/product-red-blue-c0021aa906e1.jpg',
+            'BW350': 'images/product-red-blue-78f84f4ba1cd.jpg',
+            'BB5000': 'https://insitools.com/upload/images/items/pb-200-3.jpg',
+            'BB4500': 'https://insitools.com/upload/images/items/pb-400-1.jpg',
+            'BB6100': 'https://insitools.com/upload/images/items/pb-600-4.jpg',
+            'BB7100': 'https://insitools.com/upload/images/items/pb-800-90-5.jpg',
+            'PB300super': 'https://insitools.com/upload/images/items/pb300-super-portable-line-boring-52.jpg',
+            'FF5300': 'images/product-red-blue-8e4c8a46cddc.jpg',
+            'FF6300': 'images/product-red-blue-57a4470e4abc.jpg',
+            'FF7200': 'images/product-red-blue-01f7a530308a.jpg',
+            'FF8200': 'images/product-red-blue-ae03cd6c6338.jpg',
+            'BW3000': 'https://insitools.com/upload/images/items/abw-350-360-19.jpg',
+            'BW1000': 'https://insitools.com/upload/images/items/abw-350-360-19.jpg',
+            'Valve-Lapping-Grinding': 'https://insitools.com/upload/images/items/in-situ-gate-valve-lapping-machine-31.jpg',
+            'Clamshell-Pipe-Cutters': 'images/clamshell-red-blue.jpg',
+            'Tube-Expanders-Bevelers': 'images/product-red-blue-925a88f205a8.jpg',
+            'Hydraulic-Torque-Wrenches': 'images/product-red-blue-477c45398cd2.jpg',
+            'ILMD1000': 'images/joysung-lmd1000-blue.jpg',
+            'ILMD2000': 'images/joysung-lmd2000-blue.jpg',
+            'ILMD3000': 'images/joysung-lmd3000-blue.jpg',
+            'ILMD4000': 'images/joysung-lmd4000-blue.jpg',
+            'ILMD5000': 'images/joysung-lmd5000-blue.jpg'
+        };
+
+        const officialProductDownloads = {
+            'BB7100': 'https://insitools.com/upload/images/attachments/PB_800_90-with-numbers.pdf',
+            'BW3000': 'https://insitools.com/upload/images/attachments/ABW_350_360_1.pdf',
+            'BW1000': 'https://insitools.com/upload/images/attachments/ABW_350_360_1.pdf',
+            'BW350': 'https://insitools.com/upload/images/attachments/ABW_350_360_1.pdf',
+            'BW360': 'https://insitools.com/upload/images/attachments/ABW_350_360_1.pdf'
+        };
+
+        // ฟังก์ชันอ่านค่า Parameter จาก URL (?model=ชื่อรุ่น) เพื่อนำข้อมูลไปปรับแต่งหน้าเว็บ
+        function loadProductDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let modelKey = urlParams.get('model');
+
+            if (!modelKey || (!productsDatabase[modelKey] && !linkedProductInfo[modelKey])) {
+                modelKey = 'BB40';
+            }
+
+            const product = productsDatabase[modelKey] || linkedProductInfo[modelKey];
+            product.image = linkedProductImages[modelKey] || product.image;
+
+            // 1. อัปเดตข้อมูลโครงสร้างข้อความและตารางบนหน้าเว็บ
+            document.getElementById('breadcrumb-category').innerText = product.cat;
+            document.getElementById('breadcrumb-model').innerText = modelKey;
+            document.getElementById('product-tag-category').innerText = product.cat;
+            document.getElementById('product-title-model').innerText = product.name;
+            document.getElementById('product-image-text').innerText = `${modelKey} Product Image`;
+            document.getElementById('form-product-model').value = product.name; // ใส่ค่าลงในแบบฟอร์มขอราคา
+
+            const pdfDownloadButton = document.getElementById('pdf-download-btn');
+            const pdfUnavailableMessage = document.getElementById('pdf-unavailable-message');
+            const officialPdfUrl = officialProductDownloads[modelKey];
+            if (officialPdfUrl) {
+                pdfDownloadButton.href = officialPdfUrl;
+                pdfDownloadButton.classList.remove('hidden');
+                pdfUnavailableMessage.classList.add('hidden');
+            } else {
+                pdfDownloadButton.classList.add('hidden');
+                pdfUnavailableMessage.classList.remove('hidden');
+            }
+
+            const productImage = document.getElementById('product-image');
+            const productImagePlaceholder = document.getElementById('product-image-placeholder');
+            const fallbackImage = 'images/placeholder.svg';
+            if (product.image) {
+                productImage.src = product.image;
+                productImage.onerror = function() {
+                    this.src = fallbackImage;
+                };
+                productImage.classList.remove('hidden');
+                productImagePlaceholder.classList.add('hidden');
+            } else {
+                productImage.src = fallbackImage;
+                productImage.classList.remove('hidden');
+                productImagePlaceholder.classList.add('hidden');
+            }
+
+            // 2. เคลียร์และสร้างรายการตารางสเปกสินค้าแบบเจาะจงโมเดล
+            const specsContainer = document.getElementById('specs-container');
+            const specsMessage = document.getElementById('specs-message');
+            const specs = Object.entries(product.specs || {});
+            specsContainer.replaceChildren();
+
+            for (const [specName, specValue] of specs) {
+                const row = document.createElement('div');
+                row.className = 'grid grid-cols-1 sm:grid-cols-5 gap-2 px-6 py-4 text-sm';
+
+                const label = document.createElement('dt');
+                label.className = 'sm:col-span-2 font-bold text-gray-500 uppercase tracking-wide text-xs flex items-center';
+                label.textContent = specName;
+
+                const value = document.createElement('dd');
+                value.className = 'sm:col-span-3 text-gray-800 font-semibold text-sm leading-relaxed';
+                value.textContent = specValue;
+
+                row.append(label, value);
+                specsContainer.append(row);
+            }
+
+            specsMessage.textContent = specs.length
+                ? ''
+                : 'Detailed specifications are not published on this INSITOOLS source page. Please contact the sales team to confirm this model\'s configuration.';
+            specsMessage.classList.toggle('hidden', specs.length > 0);
+
+        }
+
+        function sendQuoteToWhatsApp(event) {
+            event.preventDefault();
+
+            const fields = [
+                ['Product', document.getElementById('form-product-model').value],
+                ['Contact name', document.getElementById('quote-contact-name').value],
+                ['Company', document.getElementById('quote-company').value],
+                ['Email', document.getElementById('quote-email').value],
+                ['Phone', document.getElementById('quote-phone').value],
+                ['Requirements', document.getElementById('quote-details').value]
+            ];
+            const message = ['INSITOOLS Quotation Request', ...fields.map(([label, value]) => `${label}: ${value}`)].join('\n');
+            const whatsappUrl = `https://wa.me/6598183419?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+            return false;
+        }
+
+        // สั่งให้โค้ดทำงานทันทีเมื่อผู้ใช้งานเปิดเข้าหน้านี้
+        window.addEventListener('DOMContentLoaded', loadProductDetails);
+    </script>
+
+    <footer class="bg-insitools-dark-blue text-gray-300 py-6 border-t border-[#133552] mt-auto">
+        <div class="w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs gap-4">
+            <a href="insitools_edit.html" class="inline-flex items-center">
+                <img src="logo.png" alt="INSITOOLS logo" class="h-10 w-auto">
+            </a>
+            <div class="flex space-x-6 mb-4 md:mb-0">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Use</a>
+            </div>
+            <div class="text-gray-400">© 2026 INSITOOLS. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>

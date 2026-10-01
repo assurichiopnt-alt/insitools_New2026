@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSITOOLS - On-Site Services & Rentals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'insitools-dark-blue': '#1a4971', 
+                        'insitools-red': '#c62828',       
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-gray-50 flex flex-col min-h-screen">
+
+    <header class="bg-insitools-dark-blue text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <a href="insitools_edit.html" class="inline-flex items-center">
+                <img src="logo.png" alt="INSITOOLS logo" class="h-12 w-auto">
+            </a>
+            <nav class="w-full md:w-auto">
+                <ul class="flex flex-wrap items-center justify-center gap-4 text-sm font-medium">
+                    <li><a href="insitools_edit.html" class="hover:text-gray-300 transition duration-150">Home</a></li>
+                    <li><a href="products.html" class="hover:text-gray-300 transition duration-150">Products</a></li>
+                    <li><a href="service-rent.html" class="text-white border-b-2 border-white pb-1 font-bold">Services & Rentals</a></li>
+                    <li><a href="about.html" class="hover:text-gray-300 transition duration-150">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full max-w-5xl mx-auto px-6 py-12">
+        
+        <div id="list-view" class="space-y-10">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h1 class="text-3xl font-black text-insitools-dark-blue uppercase tracking-wide">On-Site Machining Services & Rentals</h1>
+                <p class="text-gray-500 mt-2 text-sm">On-site machining services and high-performance machine rentals for heavy industry and maintenance operations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div onclick="openRequestForm('Line Boring Machines')" class="group bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition duration-200 cursor-pointer">
+                    <div>
+                        <img src="https://www.climaxportable.com/wp-content/uploads/sites/22/2025/07/BB5000-Close-Up.jpg" alt="CLIMAX BB5000 Line Boring Machine" loading="lazy" class="w-full h-40 object-contain bg-white rounded-lg mb-4">
+                        <h3 class="font-bold text-lg text-gray-900 group-hover:text-insitools-red transition">1. Line Boring Machines</h3>
+                        <p class="text-gray-500 text-xs mt-2 leading-relaxed">On-site line boring service and boring machine rentals for the maintenance of excavators, pump housings, and heavy-equipment bearing bores.</p>
+                        <a href="https://www.climaxportable.com/products/line-boring-machines/bb5000-line-boring-machine/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="inline-block mt-3 text-xs font-bold text-insitools-dark-blue hover:text-insitools-red underline underline-offset-4">BB5000 Line Boring Machine</a>
+                        <div class="mt-2 space-y-1 text-[11px] leading-relaxed text-gray-600">
+                            <p><span class="font-bold text-gray-700">Boring diameter:</span> 38.1–609.6 mm</p>
+                            <p><span class="font-bold text-gray-700">Bar diameter:</span> 57.2 mm; optional 31.8 mm</p>
+                            <p><span class="font-bold text-gray-700">Max stroke:</span> 914.4 mm</p>
+                        </div>
+                    </div>
+                    <button class="mt-6 w-full border border-insitools-dark-blue text-insitools-dark-blue group-hover:bg-insitools-dark-blue group-hover:text-white font-semibold text-xs py-2.5 rounded-lg transition tracking-wide">
+                        Request a Quote / Rental
+                    </button>
+                </div>
+
+                <div onclick="openRequestForm('Bore Welding Machines')" class="group bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition duration-200 cursor-pointer">
+                    <div>
+                        <img src="https://www.climaxportable.com/wp-content/uploads/sites/22/2025/07/BW1000.jpg" alt="CLIMAX BW1000 Auto Bore Welder" loading="lazy" class="w-full h-40 object-contain bg-white rounded-lg mb-4">
+                        <h3 class="font-bold text-lg text-gray-900 group-hover:text-insitools-red transition">2. Bore Welding Machines</h3>
+                        <p class="text-gray-500 text-xs mt-2 leading-relaxed">Service and rental of automated bore-welding systems that build up worn surfaces back to standard size before re-boring.</p>
+                        <a href="https://www.climaxportable.com/products/bore-welding-machines/bw1000-auto-bore-welder/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="inline-block mt-3 text-xs font-bold text-insitools-dark-blue hover:text-insitools-red underline underline-offset-4">BW1000 Auto Bore Welder</a>
+                        <div class="mt-2 space-y-1 text-[11px] leading-relaxed text-gray-600">
+                            <p><span class="font-bold text-gray-700">Axial travel:</span> 228.6 mm</p>
+                            <p><span class="font-bold text-gray-700">Wire diameter:</span> 0.76–1.14 mm</p>
+                            <p><span class="font-bold text-gray-700">Torch range:</span> 22.4–609.6 mm</p>
+                        </div>
+                    </div>
+                    <button class="mt-6 w-full border border-insitools-dark-blue text-insitools-dark-blue group-hover:bg-insitools-dark-blue group-hover:text-white font-semibold text-xs py-2.5 rounded-lg transition tracking-wide">
+                        Request a Quote / Rental
+                    </button>
+                </div>
+
+                <div onclick="openRequestForm('Flange Facers')" class="group bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition duration-200 cursor-pointer">
+                    <div>
+                        <img src="images/product-red-blue-b0e2febfce01.jpg" alt="CLIMAX FF5300 Flange Facer" loading="lazy" class="w-full h-40 object-contain bg-white rounded-lg mb-4">
+                        <h3 class="font-bold text-lg text-gray-900 group-hover:text-insitools-red transition">3. Flange Facers</h3>
+                        <p class="text-gray-500 text-xs mt-2 leading-relaxed">On-site flange facing service to fix leaking flange faces in piping systems at refineries, power plants, and drilling rigs.</p>
+                        <a href="https://www.climaxportable.com/products/flange-facers-id-mount/ff5300-flange-facer/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="inline-block mt-3 text-xs font-bold text-insitools-dark-blue hover:text-insitools-red underline underline-offset-4">FF5300 Flange Facer</a>
+                        <div class="mt-2 space-y-1 text-[11px] leading-relaxed text-gray-600">
+                            <p><span class="font-bold text-gray-700">Facing diameter:</span> 144.8–812.8 mm standard; up to 1016 mm extended</p>
+                            <p><span class="font-bold text-gray-700">ID mounting diameter:</span> 144.8–909.3 mm</p>
+                            <p><span class="font-bold text-gray-700">Power:</span> Pneumatic</p>
+                        </div>
+                    </div>
+                    <button class="mt-6 w-full border border-insitools-dark-blue text-insitools-dark-blue group-hover:bg-insitools-dark-blue group-hover:text-white font-semibold text-xs py-2.5 rounded-lg transition tracking-wide">
+                        Request a Quote / Rental
+                    </button>
+                </div>
+
+                <div onclick="openRequestForm('Milling Machines')" class="group bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition duration-200 cursor-pointer">
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-900 group-hover:text-insitools-red transition">4. Milling Machines</h3>
+                        <p class="text-gray-500 text-xs mt-2 leading-relaxed">On-site portable milling service for flat surfacing and slotting of large machine bases and motor mounting platforms. Equipment is selected to suit each project.</p>
+                    </div>
+                    <button class="mt-6 w-full border border-insitools-dark-blue text-insitools-dark-blue group-hover:bg-insitools-dark-blue group-hover:text-white font-semibold text-xs py-2.5 rounded-lg transition tracking-wide">
+                        Request a Quote / Rental
+                    </button>
+                </div>
+
+                <div onclick="openRequestForm('Key Mills')" class="group bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition duration-200 cursor-pointer">
+                    <div>
+                        <img src="images/product-red-blue-91ec3f35a125.jpg" alt="CLIMAX KM3000 Key Mill" loading="lazy" class="w-full h-40 object-contain bg-white rounded-lg mb-4">
+                        <h3 class="font-bold text-lg text-gray-900 group-hover:text-insitools-red transition">5. Key Mills</h3>
+                        <p class="text-gray-500 text-xs mt-2 leading-relaxed">On-site keyway milling service to repair or cut new keyways on machine shafts without dismantling the components.</p>
+                        <a href="https://www.climaxportable.com/products/key-mills/km3000-key-mill/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="inline-block mt-3 text-xs font-bold text-insitools-dark-blue hover:text-insitools-red underline underline-offset-4">KM3000 Key Mill</a>
+                        <div class="mt-2 space-y-1 text-[11px] leading-relaxed text-gray-600">
+                            <p><span class="font-bold text-gray-700">Keyway length:</span> 152.4 mm</p>
+                            <p><span class="font-bold text-gray-700">Keyway width:</span> 31.8 mm</p>
+                            <p><span class="font-bold text-gray-700">Shaft diameter:</span> 19.1–266.7 mm</p>
+                        </div>
+                    </div>
+                    <button class="mt-6 w-full border border-insitools-dark-blue text-insitools-dark-blue group-hover:bg-insitools-dark-blue group-hover:text-white font-semibold text-xs py-2.5 rounded-lg transition tracking-wide">
+                        Request a Quote / Rental
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="form-view" class="hidden max-w-2xl mx-auto bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
+            
+            <button onclick="closeRequestForm()" class="flex items-center text-xs font-bold text-gray-500 hover:text-insitools-red mb-6 transition">
+                &larr; Back to machine selection
+            </button>
+
+            <div class="border-b border-gray-100 pb-4 mb-6">
+                <h2 class="text-xl font-black text-insitools-dark-blue">Service &amp; Machine Rental Request Form</h2>
+                <p class="text-gray-500 text-xs mt-1">Please fill in your requirements and job details so our team can get back to you.</p>
+            </div>
+
+            <form id="rental-service-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Selected Machine</label>
+                    <input type="text" id="selected-machine-display" disabled placeholder="To be assessed and advised by our sales team" class="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2.5 font-bold text-insitools-dark-blue text-sm focus:outline-none placeholder:font-normal placeholder:text-gray-400">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-3">How would you like to use it? (Select one or more)</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <label class="flex items-start p-4 bg-gray-50 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+                            <input type="checkbox" name="service_type" value="On-site Service" class="mt-1 h-4 w-4 text-insitools-red border-gray-300 rounded focus:ring-insitools-red">
+                            <div class="ml-3">
+                                <span class="block text-sm font-bold text-gray-900">On-Site Service</span>
+                                <span class="block text-gray-500 text-[11px] mt-0.5">Send an expert technician team to carry out the work on-site.</span>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start p-4 bg-gray-50 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+                            <input type="checkbox" name="service_type" value="Rental" class="mt-1 h-4 w-4 text-insitools-red border-gray-300 rounded focus:ring-insitools-red">
+                            <div class="ml-3">
+                                <span class="block text-sm font-bold text-gray-900">Machine Rental</span>
+                                <span class="block text-gray-500 text-[11px] mt-0.5">Rent the machine only and operate it yourself.</span>
+                            </div>
+                        </label>
+
+                    </div>
+                </div>
+
+                <div>
+                    <label for="job-details" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Job details required / rental specifications</label>
+                    <textarea id="job-details" required rows="4" placeholder="Example: Need to bore 4 holes, 120 mm diameter x 250 mm deep, in Rayong province around [dates]... or specify the machine model you wish to rent." 
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-insitools-dark-blue focus:ring-1 focus:ring-insitools-dark-blue"></textarea>
+                </div>
+
+                <div class="border-t border-gray-100 pt-6">
+                    <h3 class="text-xs font-bold text-insitools-dark-blue uppercase tracking-widest mb-4">Contact Information</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="contact-name" class="block text-[11px] font-bold text-gray-600 mb-1">Contact Name *</label>
+                            <input type="text" id="contact-name" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-insitools-dark-blue focus:ring-1 focus:ring-insitools-dark-blue">
+                        </div>
+                        <div>
+                            <label for="company-name" class="block text-[11px] font-bold text-gray-600 mb-1">Company / Shop Name</label>
+                            <input type="text" id="company-name" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-insitools-dark-blue focus:ring-1 focus:ring-insitools-dark-blue">
+                        </div>
+                        <div>
+                            <label for="contact-phone" class="block text-[11px] font-bold text-gray-600 mb-1">Phone Number *</label>
+                            <input type="tel" id="contact-phone" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-insitools-dark-blue focus:ring-1 focus:ring-insitools-dark-blue">
+                        </div>
+                        <div>
+                            <label for="contact-email" class="block text-[11px] font-bold text-gray-600 mb-1">Email *</label>
+                            <input type="email" id="contact-email" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-insitools-dark-blue focus:ring-1 focus:ring-insitools-dark-blue">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit" class="w-full bg-insitools-red hover:bg-[#b02323] text-white font-bold text-sm py-3 rounded-lg shadow transition duration-150 uppercase tracking-wider">
+                        Continue to WhatsApp
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </main>
+
+    <footer class="bg-insitools-dark-blue text-gray-300 py-6 border-t border-[#133552] mt-auto">
+        <div class="w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs gap-4">
+            <a href="insitools_edit.html" class="inline-flex items-center">
+                <img src="logo.png" alt="INSITOOLS logo" class="h-10 w-auto">
+            </a>
+            <div class="flex space-x-6 mb-4 md:mb-0">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Use</a>
+            </div>
+            <div class="text-gray-400">© 2026 INSITOOLS. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Triggered when a machine card is clicked on the main list.
+        function openRequestForm(machineName) {
+            // 1. Hide the list view and show the form view.
+            document.getElementById('list-view').classList.add('hidden');
+            document.getElementById('form-view').classList.remove('hidden');
+
+            // 2. Reset any previous form values.
+            document.getElementById('rental-service-form').reset();
+
+            // 3. Auto-fill the selected machine name into the form.
+            document.getElementById('selected-machine-display').value = machineName;
+
+            // 4. Scroll back to the top for a clean view.
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Go back to the machine list.
+        function closeRequestForm() {
+            document.getElementById('form-view').classList.add('hidden');
+            document.getElementById('list-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Handle the form submission.
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Prevent the page from reloading.
+
+            // Make sure at least one option (Service or Rental) is checked.
+            const checkboxes = document.querySelectorAll('input[name="service_type"]:checked');
+            if (checkboxes.length === 0) {
+                alert('Please select at least one option (On-Site Service or Machine Rental).');
+                return;
+            }
+
+            const machine = document.getElementById('selected-machine-display').value;
+            const name = document.getElementById('contact-name').value;
+            const company = document.getElementById('company-name').value || 'Not provided';
+            const phone = document.getElementById('contact-phone').value;
+            const email = document.getElementById('contact-email').value;
+            const services = Array.from(checkboxes, checkbox => checkbox.value).join(', ');
+            const details = document.getElementById('job-details').value;
+            const message = [
+                'INSITOOLS Service / Rental Request',
+                `Machine: ${machine}`,
+                `Request type: ${services}`,
+                `Contact name: ${name}`,
+                `Company: ${company}`,
+                `Phone: ${phone}`,
+                `Email: ${email}`,
+                `Job details: ${details}`
+            ].join('\n');
+            const whatsappUrl = `https://wa.me/6598183419?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+            closeRequestForm();
+        }
+    </script>
+
+</body>
+</html>

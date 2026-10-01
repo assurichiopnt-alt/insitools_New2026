@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSITOOLS - Product Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'insitools-dark-blue': '#1a4971', 
+                        'insitools-red': '#c62828',       
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-gray-50 flex flex-col min-h-screen">
+
+    <header class="bg-insitools-dark-blue text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <a href="insitools_edit.html" class="inline-flex items-center">
+                <img src="logo.png" alt="INSITOOLS logo" class="h-12 w-auto">
+            </a>
+            <nav class="w-full md:w-auto">
+                <ul class="flex flex-wrap items-center justify-center gap-4 text-sm font-medium">
+                    <li><a href="insitools_edit.html" class="hover:text-gray-300 transition duration-150">Home</a></li>
+                    <li><a href="products.html" class="text-white font-bold border-b-2 border-white pb-1">Products</a></li>
+                    <li><a href="service-rent.html" class="hover:text-gray-300 transition duration-150">Services & Rentals</a></li>
+                    <li><a href="about.html" class="hover:text-gray-300 transition duration-150">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="bg-white border-b border-gray-200 py-6">
+        <div class="max-w-7xl mx-auto px-6">
+            <nav class="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2">
+                <a href="insitools_edit.html" class="hover:text-insitools-red">Home</a>
+                <span class="mx-2">/</span>
+                <a href="products.html" class="hover:text-insitools-red">Our Products</a>
+                <span class="mx-2">/</span>
+                <span class="text-gray-800" id="breadcrumb-category">Boring Machines</span>
+            </nav>
+            <h1 class="text-2xl md:text-3xl font-black text-insitools-dark-blue uppercase tracking-wide" id="current-category-title">
+                Boring Machines
+            </h1>
+        </div>
+    </div>
+
+    <div class="flex-grow w-full max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row gap-8">
+        
+        <aside class="w-full md:w-64 flex-shrink-0">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-2 sticky top-24 flex flex-row md:flex-col overflow-x-auto md:overflow-x-visible whitespace-nowrap md:whitespace-normal no-scrollbar gap-1">
+                <div class="hidden md:block text-[11px] font-bold text-gray-400 uppercase tracking-widest px-4 pt-3 pb-2">Categories</div>
+                
+                <button id="tab-boring-machines" onclick="switchCategory('boring-machines')" class="sidebar-tab text-left w-full px-4 py-3 text-xs font-semibold rounded transition duration-150 bg-insitools-dark-blue text-white">
+                    1. Boring Machines
+                </button>
+                <button id="tab-flange-facers" onclick="switchCategory('flange-facers')" class="sidebar-tab text-left w-full px-4 py-3 text-xs font-semibold rounded text-gray-700 hover:bg-gray-100 transition duration-150">
+                    2. Flange Facers
+                </button>
+                <button id="tab-milling-machines" onclick="switchCategory('milling-machines')" class="sidebar-tab text-left w-full px-4 py-3 text-xs font-semibold rounded text-gray-700 hover:bg-gray-100 transition duration-150">
+                    3. Milling Machines
+                </button>
+                <button id="tab-bore-welders" onclick="switchCategory('bore-welders')" class="sidebar-tab text-left w-full px-4 py-3 text-xs font-semibold rounded text-gray-700 hover:bg-gray-100 transition duration-150">
+                    4. Bore Welders
+                </button>
+                <button id="tab-valve-solution" onclick="switchCategory('valve-solution')" class="sidebar-tab text-left w-full px-4 py-3 text-xs font-semibold rounded text-gray-700 hover:bg-gray-100 transition duration-150">
+                    5. Valve Solution
+                </button>
+                <button id="tab-pipe-cutting" onclick="switchCategory('pipe-cutting')" class="sidebar-tab text-left w-full px-4 py-3 text-xs font-semibold rounded text-gray-700 hover:bg-gray-100 transition duration-150">
+                    6. Pipe Cutting
+                </button>
+                <button id="tab-hydraulic-tools" onclick="switchCategory('hydraulic-tools')" class="sidebar-tab text-left w-full px-4 py-3 text-xs font-semibold rounded text-gray-700 hover:bg-gray-100 transition duration-150">
+                    7. Hydraulic Tools
+                </button>
+            </div>
+        </aside>
+
+        <main class="flex-grow">
+            
+            <div id="boring-machines" class="category-section grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <script>
+                    const boringModels = ['BB5000', 'BB4500', 'BB6100', 'BB7100', 'PB300super'];
+                    boringModels.forEach(model => {
+                        document.write(`
+                            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
+                                <img src="images/${model.toLowerCase()}.jpg" alt="${model}" class="w-full h-40 object-cover bg-gray-100" onerror="this.src='images/placeholder.svg'">
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <h4 class="font-bold text-gray-900 text-sm mb-1">${model}</h4>
+                                    <p class="text-gray-500 text-[11px] font-medium uppercase tracking-wider mb-4">Portable Boring Machine</p>
+                                    <button class="w-full bg-insitools-dark-blue hover:bg-opacity-90 text-white text-xs font-bold py-2 rounded transition mt-auto">Request Quote</button>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+
+            <div id="flange-facers" class="category-section hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <script>
+                    const flangeModels = ['FF5300', 'FF6300', 'FF7200', 'FF8200'];
+                    flangeModels.forEach(model => {
+                        document.write(`
+                            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
+                                <img src="images/${model.toLowerCase()}.jpg" alt="${model}" class="w-full h-40 object-cover bg-gray-100" onerror="this.src='images/placeholder.svg'">
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <h4 class="font-bold text-gray-900 text-sm mb-1">${model}</h4>
+                                    <p class="text-gray-500 text-[11px] font-medium uppercase tracking-wider mb-4">Flange Facer Machine</p>
+                                    <button class="w-full bg-insitools-dark-blue hover:bg-opacity-90 text-white text-xs font-bold py-2 rounded transition mt-auto">Request Quote</button>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+
+            <div id="milling-machines" class="category-section hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
+                    <img src="images/joysung-lmd1000-blue.jpg" alt="ILMD1000 gantry milling machine" class="w-full h-40 object-contain bg-white">
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h4 class="font-bold text-gray-900 text-sm mb-1">ILMD1000</h4>
+                        <p class="text-gray-500 text-[11px] font-medium uppercase tracking-wider mb-4">Gantry Milling Machine</p>
+                        <a href="product-detail.html?model=ILMD1000" class="w-full bg-insitools-dark-blue hover:bg-opacity-90 text-white text-xs font-bold py-2 rounded transition mt-auto text-center">View Specs & Quote</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
+                    <img src="images/joysung-lmd2000-blue.jpg" alt="ILMD2000 gantry milling machine" class="w-full h-40 object-contain bg-white">
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h4 class="font-bold text-gray-900 text-sm mb-1">ILMD2000</h4>
+                        <p class="text-gray-500 text-[11px] font-medium uppercase tracking-wider mb-4">Gantry Milling Machine</p>
+                        <a href="product-detail.html?model=ILMD2000" class="w-full bg-insitools-dark-blue hover:bg-opacity-90 text-white text-xs font-bold py-2 rounded transition mt-auto text-center">View Specs & Quote</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
+                    <img src="images/joysung-lmd3000-blue.jpg" alt="ILMD3000 gantry milling machine" class="w-full h-40 object-contain bg-white">
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h4 class="font-bold text-gray-900 text-sm mb-1">ILMD3000</h4>
+                        <p class="text-gray-500 text-[11px] font-medium uppercase tracking-wider mb-4">Gantry Milling Machine</p>
+                        <a href="product-detail.html?model=ILMD3000" class="w-full bg-insitools-dark-blue hover:bg-opacity-90 text-white text-xs font-bold py-2 rounded transition mt-auto text-center">View Specs & Quote</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
+                    <img src="images/joysung-lmd4000-blue.jpg" alt="ILMD4000 gantry milling machine" class="w-full h-40 object-contain bg-white">
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h4 class="font-bold text-gray-900 text-sm mb-1">ILMD4000</h4>
+                        <p class="text-gray-500 text-[11px] font-medium uppercase tracking-wider mb-4">Gantry Milling Machine</p>
+                        <a href="product-detail.html?model=ILMD4000" class="w-full bg-insitools-dark-blue hover:bg-opacity-90 text-white text-xs font-bold py-2 rounded transition mt-auto text-center">View Specs & Quote</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
+                    <img src="images/joysung-lmd5000-blue.jpg" alt="ILMD5000 gantry milling machine" class="w-full h-40 object-contain bg-white">
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h4 class="font-bold text-gray-900 text-sm mb-1">ILMD5000</h4>
+                        <p class="text-gray-500 text-[11px] font-medium uppercase tracking-wider mb-4">Gantry Milling Machine</p>
+                        <a href="product-detail.html?model=ILMD5000" class="w-full bg-insitools-dark-blue hover:bg-opacity-90 text-white text-xs font-bold py-2 rounded transition mt-auto text-center">View Specs & Quote</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="bore-welders" class="category-section hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <script>
+                    const welderModels = ['BW3000', 'BW1000'];
+                    welderModels.forEach(model => {
+                        document.write(`
+                            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
+                                <img src="images/${model.toLowerCase()}.jpg" alt="${model}" class="w-full h-40 object-cover bg-gray-100" onerror="this.src='images/placeholder.svg'">
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <h4 class="font-bold text-gray-900 text-sm mb-1">${model}</h4>
+                                    <p class="text-gray-500 text-[11px] font-medium uppercase tracking-wider mb-4">Automatic Bore Welder</p>
+                                    <button class="w-full bg-insitools-dark-blue hover:bg-opacity-90 text-white text-xs font-bold py-2 rounded transition mt-auto">Request Quote</button>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+
+            <div id="valve-solution" class="category-section hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <script>
+                    const valveProducts = [
+                        { name: 'Valve Lapping/Grinding Machines', key: 'valve-lapping-grinding', type: 'Valve Service Equipment' },
+                        { name: 'Valve Testing Benches', key: 'valve-testing-benches', type: 'Valve Testing Equipment' }
+                    ];
+                    valveProducts.forEach(prod => {
+                        document.write(`
+                            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
+                                <img src="images/${prod.key}.jpg" alt="${prod.name}" class="w-full h-40 object-cover bg-gray-100" onerror="this.src='images/placeholder.svg'">
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <h4 class="font-bold text-gray-900 text-sm mb-1 line-clamp-2 min-h-[40px]">${prod.name}</h4>
+                                    <p class="text-gray-500 text-[11px] font-medium uppercase tracking-wider mb-4">${prod.type}</p>
+                                    <button class="w-full bg-insitools-dark-blue hover:bg-opacity-90 text-white text-xs font-bold py-2 rounded transition mt-auto">Request Quote</button>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+
+            <div id="pipe-cutting" class="category-section hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <script>
+                    const pipeProducts = [
+                        { name: 'Clamshell Pipe Cutters', key: 'clamshell-red-blue', type: 'Pipe Cutting Equipment' },
+                        { name: 'Tube Expanders & Bevelers', key: 'tube-expanders-bevelers', type: 'Tube Processing Equipment' }
+                    ];
+                    pipeProducts.forEach(prod => {
+                        document.write(`
+                            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
+                                <img src="images/${prod.key}.jpg" alt="${prod.name}" class="w-full h-40 object-cover bg-gray-100" onerror="this.src='images/placeholder.svg'">
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <h4 class="font-bold text-gray-900 text-sm mb-1 line-clamp-2 min-h-[40px]">${prod.name}</h4>
+                                    <p class="text-gray-500 text-[11px] font-medium uppercase tracking-wider mb-4">${prod.type}</p>
+                                    <button class="w-full bg-insitools-dark-blue hover:bg-opacity-90 text-white text-xs font-bold py-2 rounded transition mt-auto">Request Quote</button>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+
+            <div id="hydraulic-tools" class="category-section hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <script>
+                    const hydroTools = [
+                        { name: 'Hydraulic Power Units (HPU)', key: 'hydraulic-power-units', description: 'Hydraulic Power Units' },
+                        { name: 'Hydraulic Torque Wrenches', key: 'hydraulic-torque-wrenches', description: 'Torque Wrench Tools' }
+                    ];
+                    hydroTools.forEach(tool => {
+                        document.write(`
+                            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
+                                <img src="images/${tool.key}.jpg" alt="${tool.name}" class="w-full h-40 object-cover bg-gray-100" onerror="this.src='images/placeholder.svg'">
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <h4 class="font-bold text-gray-900 text-sm mb-1 min-h-[40px] flex items-center">${tool.name}</h4>
+                                    <p class="text-gray-500 text-[11px] font-medium uppercase tracking-wider mb-4">Industrial Hydraulic Equipment</p>
+                                    <button class="w-full bg-insitools-dark-blue hover:bg-opacity-90 text-white text-xs font-bold py-2 rounded transition mt-auto">Request Quote</button>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+
+        </main>
+    </div>
+
+    <footer class="bg-insitools-dark-blue text-gray-300 py-6 border-t border-[#133552] mt-auto">
+            <div class="w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs gap-4">
+                <a href="insitools_edit.html" class="inline-flex items-center">
+                    <img src="logo.png" alt="INSITOOLS logo" class="h-10 w-auto">
+                </a>
+                <div class="flex space-x-6 mb-4 md:mb-0">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Use</a>
+                </div>
+                <div class="text-gray-400">© 2026 INSITOOLS. All rights reserved.</div>
+            </div>
+    </footer>
+
+    <script>
+        function switchCategory(categoryId) {
+            // ซ่อนทุก Section สินค้า
+            document.querySelectorAll('.category-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            // แสดงเฉพาะ Section ที่เลือก
+            const targetSection = document.getElementById(categoryId);
+            if(targetSection) targetSection.classList.remove('hidden');
+
+            // รีเซ็ตปุ่มเมนูด้านซ้ายให้เป็นสีปกติทั้งหมด
+            document.querySelectorAll('.sidebar-tab').forEach(tab => {
+                tab.classList.remove('bg-insitools-dark-blue', 'text-white');
+                tab.classList.add('text-gray-700', 'hover:bg-gray-100');
+            });
+            // ไฮไลต์ปุ่มที่กำลังเลือกด้วยสีน้ำเงินธีมหลัก
+            const activeTab = document.getElementById('tab-' + categoryId);
+            if(activeTab) {
+                activeTab.classList.remove('text-gray-700', 'hover:bg-gray-100');
+                activeTab.classList.add('bg-insitools-dark-blue', 'text-white');
+                
+                // อัปเดตข้อความหัวข้อเว็บบนหน้าจอและ Breadcrumb
+                const cleanedTitle = activeTab.innerText.replace(/^\d+\.\s*/, ''); // ตัดตัวเลขข้อหน้าออก
+                document.getElementById('current-category-title').innerText = cleanedTitle;
+                document.getElementById('breadcrumb-category').innerText = cleanedTitle;
+            }
+
+            // เปลี่ยน URL Hash เพื่อให้แชร์ลิงก์หรือกดย้อนกลับได้ง่าย
+            window.location.hash = categoryId;
+        }
+
+        // ตัวตรวจจับครั้งแรกเมื่อโหลดหน้าเว็บสำเร็จ (ดึงแฮชจาก URL เช่น #pipe-cutting)
+        window.addEventListener('DOMContentLoaded', () => {
+            const currentHash = window.location.hash.replace('#', '');
+            if (currentHash && document.getElementById(currentHash)) {
+ 
+               switchCategory(currentHash);
+            } else {
+                switchCategory('boring-machines'); // ค่าตั้งต้นหากไม่ได้ระบุแฮชมา
+            }
+        });
+    </script>
+
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</body>
+</html>
