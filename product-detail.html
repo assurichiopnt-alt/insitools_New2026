@@ -25,12 +25,12 @@
 
     <header class="bg-insitools-dark-blue text-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
-            <a href="insitools_edit.html" class="inline-flex items-center">
+            <a href="index.html" class="inline-flex items-center">
                 <img src="logo.png" alt="INSITOOLS logo" class="h-12 w-auto">
             </a>
             <nav class="w-full md:w-auto">
                 <ul class="flex flex-wrap items-center justify-center gap-4 text-sm font-medium">
-                    <li><a href="insitools_edit.html" class="hover:text-gray-300 transition duration-150">Home</a></li>
+                    <li><a href="index.html" class="hover:text-gray-300 transition duration-150">Home</a></li>
                     <li><a href="products.html" class="text-white font-bold border-b-2 border-white pb-1">Products</a></li>
                     <li><a href="service-rent.html" class="hover:text-gray-300 transition duration-150">Services & Rentals</a></li>
                     <li><a href="about.html" class="hover:text-gray-300 transition duration-150">About Us</a></li>
@@ -184,6 +184,7 @@
             'Gate-Valve-Lapping': { cat: 'Valve Solution', name: 'In-Situ Gate Valve Lapping Machine', specs: { 'Valve Size Range': 'DN 50 - DN 600', 'Lapping Plates': 'High resistance abrasive discs', 'Operating Depth': 'Up to 1000 mm immersion', 'Drive Source': 'Pneumatic / 220V Electric' } },
             'Globe-Valve-Lapping': { cat: 'Valve Solution', name: 'In-Situ Globe Valve Flat Seat Lapping Machine', specs: { 'Valve Size Range': 'DN 15 - DN 300', 'Seat Angle Design': 'Flat / Taper seats compatibility', 'Lapping Media': 'Boron Carbide Compounds', 'Portability': 'Lightweight single technician setup' } },
             'Valve-Grinding': { cat: 'Valve Solution', name: 'Portable Valve Grinding Machine', specs: { 'Grinding Diameter': 'Up to 400 mm', 'Application': 'High-pressure safety steam valves', 'Spindle Feed': 'Micro-metric fine adjustment', 'Speed Control': 'Infinitely Variable Pneumatic Controller' } },
+            'IS57928': { cat: 'Valve Solution', name: 'IS57928 In-Situ Globe Valve (Flat Seat) Grinding & Lapping Machine', image: 'images/is57928.jpg', specs: { 'Valve Size Range': '80 - 600 mm (NB 3" - 24")', 'Application': 'In-situ flat seat globe valve grinding & lapping', 'Machine Assemblies': '2 sets (80 - 150 mm / 200 - 600 mm)', 'Drive Options': 'Electric 1300 W / Pneumatic 0.83 HP', 'Operation': 'One-man, portable, packed in metal case' } },
 
             // 6. Pipe Cutting
             'PPCM-Series': { cat: 'Pipe Cutting', name: 'PPCM Series Pipe Cutting & Beveling Machine', specs: { 'Pipe OD Range': 'Custom Multi-Scale', 'Beveling Prep Profiles': 'V / J / U type preps', 'Wall Thickness Cap': 'Up to 50 mm carbon steel', 'Drive Unit': 'Hydraulic Controller Pack' } },
@@ -262,6 +263,7 @@
         };
 
         const officialProductDownloads = {
+            'IS57928': 'downloads/Insitools_IS57928_Data_Sheet.pdf',
             'BB7100': 'https://insitools.com/upload/images/attachments/PB_800_90-with-numbers.pdf',
             'BW3000': 'https://insitools.com/upload/images/attachments/ABW_350_360_1.pdf',
             'BW1000': 'https://insitools.com/upload/images/attachments/ABW_350_360_1.pdf',
@@ -358,7 +360,7 @@
                 ['Requirements', document.getElementById('quote-details').value]
             ];
             const message = ['INSITOOLS Quotation Request', ...fields.map(([label, value]) => `${label}: ${value}`)].join('\n');
-            const whatsappUrl = `https://wa.me/6598183419?text=${encodeURIComponent(message)}`;
+            const whatsappUrl = `https://wa.me/66922566264?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
             return false;
         }
@@ -369,7 +371,7 @@
 
     <footer class="bg-insitools-dark-blue text-gray-300 py-6 border-t border-[#133552] mt-auto">
         <div class="w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs gap-4">
-            <a href="insitools_edit.html" class="inline-flex items-center">
+            <a href="index.html" class="inline-flex items-center">
                 <img src="logo.png" alt="INSITOOLS logo" class="h-10 w-auto">
             </a>
             <div class="flex space-x-6 mb-4 md:mb-0">
