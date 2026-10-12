@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /insitools_edit.html
+
+Sitemap: https://insitools.com/sitemap.xml
