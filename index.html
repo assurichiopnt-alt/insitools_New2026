@@ -309,11 +309,11 @@ Singapore 787472</p>
         const featuredProductMatches = [
             { name: 'PB300 Super Portable Line Boring', model: 'PB300 Super', key: 'PB300super', image: 'images/pb300super.jpg' },
             { name: 'FDG1650 Flange Facing Machine', model: 'FDG1650', key: 'FDG1650', image: 'images/product-red-blue-ae03cd6c6338.jpg' },
-            { name: 'In-Situ Gate Valve Lapping Machine', model: 'Gate Valve Lapping', key: 'Gate-Valve-Lapping', image: 'https://insitools.com/upload/images/items/in-situ-gate-valve-lapping-machine-31.jpg' },
+            { name: 'In-Situ Gate Valve Lapping Machine', model: 'Gate Valve Lapping', key: 'Gate-Valve-Lapping', image: 'images/product-red-blue-c0021aa906e1.jpg' },
             { name: 'Portable Plate Bevel Machine', model: 'Plate Bevel Machine', key: 'Plate-Bevel-Machine', image: 'images/product-red-blue-4cc2df0eb19e.jpg' },
             { name: 'PFM165 Mini Flange Facer', model: 'PFM165', key: 'PFM165', image: 'images/product-red-blue-1fe41edf59a9.jpg' },
             { name: 'ABW 350/360 Bore Welder', model: 'ABW 350/360', key: 'ABW350-360', image: 'images/product-red-blue-78f84f4ba1cd.jpg' },
-            { name: 'Pipe Cold Cutting & Bevel Machine', model: 'Pipe Cutters', key: 'Pipe-Cold-Cutting', image: 'https://insitools.com/upload/images/items/pipe-cold-cutting-bevel-machine-27.jpg' },
+            { name: 'Pipe Cold Cutting & Bevel Machine', model: 'Pipe Cutters', key: 'Pipe-Cold-Cutting', image: 'images/product-red-blue-2dae5dcea1df.jpg' },
             { name: 'PB 800BL/90 Portable Boring Machine', model: 'PB 800BL/90', key: 'PB800BL-90', image: 'images/product-red-blue-3e7fc6cefcd2.jpg' },
             { name: 'LP3 Series Torque Wrench Pump', model: 'LP3 Series', key: 'LP3-Pump', image: 'images/product-red-blue-56441013b531.jpg' },
             { name: 'On-Site Lathe Machine', model: 'Lathe Machine', key: 'Lathe-Machine', image: 'images/product-red-blue-27493aa7bd17.jpg' }
@@ -325,8 +325,11 @@ Singapore 787472</p>
         }
 
         featuredProducts.querySelectorAll('.product-card').forEach((card, index) => {
-            const match = featuredProductMatches[index % featuredProductMatches.length];
-            if (!match) return;
+            const match = featuredProductMatches[index];
+            if (!match) {
+                card.remove();
+                return;
+            }
 
             let image = card.querySelector('img');
             if (!image) {
