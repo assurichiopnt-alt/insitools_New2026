@@ -99,8 +99,11 @@
                     </h3>
                     <p class="text-gray-500 text-xs mb-6">Fill in your requirements to receive a quotation and consultation from our engineering sales team</p>
                     
-                    <form class="space-y-4" onsubmit="return sendQuoteToWhatsApp(event);">
+                    <form class="space-y-4" data-lead-form="collectQuoteLead">
                         <input type="hidden" id="form-product-model" name="product_model" value="">
+                        <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                            <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
@@ -116,11 +119,11 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Email Address *</label>
-                                <input type="email" id="quote-email" required class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-insitools-dark-blue" placeholder="john@company.com">
+                                <input type="email" id="quote-email" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-insitools-dark-blue" placeholder="john@company.com">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Phone Number *</label>
-                                <input type="tel" id="quote-phone" required class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-insitools-dark-blue" placeholder="+1-234-567-8900">
+                                <input type="tel" id="quote-phone" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-insitools-dark-blue" placeholder="+1-234-567-8900">
                             </div>
                         </div>
 
@@ -358,21 +361,26 @@
 
         }
 
-        function sendQuoteToWhatsApp(event) {
-            event.preventDefault();
-
+        // Collects the quotation form for js/lead-form.js.
+        function collectQuoteLead() {
+            const lead = {
+                product: document.getElementById('form-product-model').value,
+                name: document.getElementById('quote-contact-name').value,
+                company: document.getElementById('quote-company').value,
+                email: document.getElementById('quote-email').value,
+                phone: document.getElementById('quote-phone').value,
+                details: document.getElementById('quote-details').value
+            };
             const fields = [
-                ['Product', document.getElementById('form-product-model').value],
-                ['Contact name', document.getElementById('quote-contact-name').value],
-                ['Company', document.getElementById('quote-company').value],
-                ['Email', document.getElementById('quote-email').value],
-                ['Phone', document.getElementById('quote-phone').value],
-                ['Requirements', document.getElementById('quote-details').value]
+                ['Product', lead.product],
+                ['Contact name', lead.name],
+                ['Company', lead.company],
+                ['Email', lead.email],
+                ['Phone', lead.phone],
+                ['Requirements', lead.details]
             ];
-            const message = ['INSITOOLS Quotation Request', ...fields.map(([label, value]) => `${label}: ${value}`)].join('\n');
-            const whatsappUrl = `https://wa.me/6598183419?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-            return false;
+            const whatsappMessage = ['INSITOOLS Quotation Request', ...fields.map(([label, value]) => `${label}: ${value}`)].join('\n');
+            return { lead, whatsappMessage };
         }
 
         // สั่งให้โค้ดทำงานทันทีเมื่อผู้ใช้งานเปิดเข้าหน้านี้
@@ -391,5 +399,6 @@
             <div class="text-gray-400">© 2026 INSITOOLS. All rights reserved.</div>
         </div>
     </footer>
+    <script src="js/lead-form.js" defer></script>
 </body>
 </html>
