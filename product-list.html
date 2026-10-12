@@ -90,9 +90,10 @@
                 <script>
                     const boringModels = ['BB5000', 'BB4500', 'BB6100', 'BB7100', 'PB300super'];
                     boringModels.forEach(model => {
+                        const image = `images/${model.toLowerCase()}.jpg`;
                         document.write(`
                             <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition">
-                                <img src="images/${model.toLowerCase()}.jpg" alt="${model}" class="w-full h-40 object-cover bg-gray-100" onerror="this.src='images/placeholder.svg'">
+                                <img src="${image}" alt="${model}" class="w-full h-40 object-cover bg-gray-100" onerror="this.src='images/placeholder.svg'">
                                 <div class="p-4 flex flex-col flex-grow">
                                     <h4 class="font-bold text-gray-900 text-sm mb-1">${model}</h4>
                                     <p class="text-gray-500 text-[11px] font-medium uppercase tracking-wider mb-4">Portable Boring Machine</p>
