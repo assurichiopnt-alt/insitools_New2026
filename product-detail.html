@@ -331,7 +331,10 @@
             document.getElementById('breadcrumb-category').innerText = product.cat;
             document.getElementById('breadcrumb-model').innerText = productCode;
             document.getElementById('product-tag-category').innerText = product.cat;
-            document.getElementById('product-title-model').innerText = product.name;
+            // Show the new code on its own line under the product name.
+            document.getElementById('product-title-model').innerText = product.name.endsWith(` ${productCode}`)
+                ? `${product.name.slice(0, -productCode.length - 1)}\n${productCode}`
+                : product.name;
             document.getElementById('product-image-text').innerText = `${productCode} Product Image`;
             document.getElementById('form-product-model').value = product.name; // ใส่ค่าลงในแบบฟอร์มขอราคา
 
