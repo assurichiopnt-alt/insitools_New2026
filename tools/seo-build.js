@@ -48,6 +48,7 @@ function loadProducts() {
   const linked = grab('linkedProductInfo');
   const images = grab('linkedProductImages');
   const downloads = grab('officialProductDownloads');
+  const codes = grab('newProductCodes'); // customer-facing model codes, e.g. BB5000 -> PB-200
 
   // Publish only models the live site actually shows (linked from a page) or that have a real photo.
   // Older placeholder entries without a photo stay hidden until their data is confirmed.
@@ -62,6 +63,7 @@ function loadProducts() {
     if (!shown.has(key) && !(images[key] || p.image)) continue;
     out.push({
       key,
+      code: codes[key] || key,
       name: p.name,
       cat: normaliseCat(p.cat),
       image: images[key] || p.image || '',
@@ -152,9 +154,9 @@ function faqFor(p) {
   const info = catInfo(p.cat);
   return [
     { q: `What is the ${p.name} used for?`, a: `${info.what} ${info.use}` },
-    { q: `Where can I buy or rent the ${p.key}?`,
+    { q: `Where can I buy or rent the ${p.code}?`,
       a: `INSITOOLS supplies the ${p.name} from its Singapore headquarters, with service teams supporting customers in Thailand and across ASEAN. On-site machining services and equipment rental are also available – contact the sales team to confirm availability for your project.` },
-    { q: `How do I get a quotation for the ${p.key}?`,
+    { q: `How do I get a quotation for the ${p.code}?`,
       a: `Use the Request a Quote form on this page or contact ${COMPANY.email} / ${COMPANY.phone}. Share your workpiece dimensions and job requirements so the engineering sales team can recommend the right configuration.` },
   ];
 }
@@ -192,7 +194,10 @@ function layout({ title, description, canonical, image, schema, body, robots }) 
     <meta property="og:url" content="${esc(canonical)}">
     <meta property="og:image" content="${esc(image || SITE + '/images/home.jpg')}">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>tailwind.config={theme:{extend:{colors:{'insitools-dark':'#0d233a','insitools-blue':'#1a4971','insitools-red':'#c62828'},fontFamily:{sans:['Helvetica Neue','Helvetica','Arial','sans-serif']}}}}</script>
     ${schema.map(jsonLd).join('\n    ')}
@@ -245,8 +250,8 @@ function productPage(p, related) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: p.name,
-    sku: p.key,
-    mpn: p.key,
+    sku: p.code,
+    mpn: p.code,
     category: p.cat,
     description: `${info.what} ${info.use}`,
     url: p.url,
@@ -288,7 +293,7 @@ function productPage(p, related) {
             <li><a href="/index.html" class="hover:text-insitools-red">Home</a> /</li>
             <li><a href="/products.html" class="hover:text-insitools-red">Products</a> /</li>
             <li><a href="/product/index.html#${slugify(p.cat)}" class="hover:text-insitools-red">${esc(p.cat)}</a> /</li>
-            <li class="text-gray-800">${esc(p.key)}</li>
+            <li class="text-gray-800">${esc(p.code)}</li>
         </ol>
     </nav>
     <main class="flex-grow w-full max-w-7xl mx-auto px-6 py-10">
@@ -306,7 +311,7 @@ function productPage(p, related) {
                     <a href="${esc(wa)}" rel="noopener" class="border border-insitools-blue text-insitools-blue text-xs font-bold uppercase tracking-wider py-3 px-6 rounded hover:bg-insitools-blue hover:text-white">Chat on WhatsApp</a>
                     ${p.datasheet ? `<a href="${esc(p.datasheet.startsWith('http') ? p.datasheet : '/' + p.datasheet)}" rel="noopener" class="border border-gray-300 text-gray-700 text-xs font-bold uppercase tracking-wider py-3 px-6 rounded hover:border-gray-500">Download Datasheet</a>` : ''}
                 </div>
-                <h2 class="text-lg font-bold text-insitools-dark mb-3">${esc(p.key)} Technical Specifications</h2>
+                <h2 class="text-lg font-bold text-insitools-dark mb-3">${esc(p.code)} Technical Specifications</h2>
                 <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
                     <table class="w-full">
                         <caption class="sr-only">${esc(p.name)} specifications</caption>
@@ -448,7 +453,7 @@ function main() {
   for (const p of products) (groups[p.cat] = groups[p.cat] || []).push(p);
   write('llms.txt', `# INSITOOLS
 
-> INSITOOLS supplies portable on-site machining, welding, valve repair, pipe cutting and hydraulic equipment, with on-site machining services and equipment rental. Headquartered in Singapore (${COMPANY.legal}) with service teams in Thailand and across ASEAN, backed by 42+ years of industrial equipment distribution and after-sales service.
+> INSITOOLS supplies portable on-site machining, welding, valve repair, pipe cutting and hydraulic equipment, with on-site machining services and equipment rental. Headquartered in Singapore (${COMPANY.legal}) with service teams in Thailand and across ASEAN, backed by 43+ years of industrial equipment distribution and after-sales service.
 
 Contact: ${COMPANY.email} · ${COMPANY.phone} · WhatsApp +${COMPANY.whatsapp} · ${COMPANY.street}, ${COMPANY.city} ${COMPANY.postal}
 
