@@ -1,13 +1,34 @@
 <!DOCTYPE html>
+<!-- AVISION -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQPL0Y9WXF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VQPL0Y9WXF');
+        // Count WhatsApp clicks on every page
+        document.addEventListener('click', function (e) {
+            var a = e.target.closest && e.target.closest('a[href*="wa.me/"]');
+            if (a) gtag('event', 'whatsapp_click', { link_url: a.href.split('?')[0], page_path: location.pathname });
+        });
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INSITOOLS - On-Site Services & Rentals</title>
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <title>On-Site Machining Services &amp; Equipment Rental | INSITOOLS</title>
+    <meta name="description" content="Hire INSITOOLS for on-site line boring, flange facing, bore welding and valve repair, or rent portable machining equipment. Singapore, Thailand and ASEAN.">
+    <link rel="canonical" href="https://insitools.com/service-rent.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="INSITOOLS">
+    <meta property="og:title" content="On-Site Machining Services &amp; Equipment Rental | INSITOOLS">
+    <meta property="og:description" content="Hire INSITOOLS for on-site line boring, flange facing, bore welding and valve repair, or rent portable machining equipment. Singapore, Thailand and ASEAN.">
+    <meta property="og:url" content="https://insitools.com/service-rent.html">
+    <meta property="og:image" content="https://insitools.com/images/home.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="logo.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -55,14 +76,14 @@
                 
                 <div onclick="openRequestForm('Line Boring Machines')" class="group bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition duration-200 cursor-pointer">
                     <div>
-                        <img src="images/pb300super.jpg" alt="PB-300 portable line boring machine" loading="lazy" class="w-full h-40 object-contain bg-white rounded-lg mb-4">
+                        <div class="w-full h-40 flex items-center justify-center bg-gray-100 text-sm font-semibold text-gray-400 rounded-lg mb-4" role="img" aria-label="Line boring machine image removed">Line Boring Machine</div>
                         <h3 class="font-bold text-lg text-gray-900 group-hover:text-insitools-red transition">1. Line Boring Machines</h3>
                         <p class="text-gray-500 text-xs mt-2 leading-relaxed">On-site line boring service and boring machine rentals for the maintenance of excavators, pump housings, and heavy-equipment bearing bores.</p>
-                        <a href="product-detail.html?model=PB300super" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="inline-block mt-3 text-xs font-bold text-insitools-dark-blue hover:text-insitools-red underline underline-offset-4">PB-300 Portable Line Boring Machine</a>
+                        <a href="products.html" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="inline-block mt-3 text-xs font-bold text-insitools-dark-blue hover:text-insitools-red underline underline-offset-4">BB5000 Line Boring Machine</a>
                         <div class="mt-2 space-y-1 text-[11px] leading-relaxed text-gray-600">
-                            <p><span class="font-bold text-gray-700">Boring diameter:</span> 55–300 mm</p>
-                            <p><span class="font-bold text-gray-700">Bar diameter:</span> Ø50 mm; optional Ø35 mm</p>
-                            <p><span class="font-bold text-gray-700">Boring stroke:</span> 280 mm</p>
+                            <p><span class="font-bold text-gray-700">Boring diameter:</span> 38.1–609.6 mm</p>
+                            <p><span class="font-bold text-gray-700">Bar diameter:</span> 57.2 mm; optional 31.8 mm</p>
+                            <p><span class="font-bold text-gray-700">Max stroke:</span> 914.4 mm</p>
                         </div>
                     </div>
                     <button class="mt-6 w-full border border-insitools-dark-blue text-insitools-dark-blue group-hover:bg-insitools-dark-blue group-hover:text-white font-semibold text-xs py-2.5 rounded-lg transition tracking-wide">
@@ -72,7 +93,7 @@
 
                 <div onclick="openRequestForm('Bore Welding Machines')" class="group bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition duration-200 cursor-pointer">
                     <div>
-                        <img src="images/rent-bore-welding.jpg" alt="Portable bore welding machine" loading="lazy" class="w-full h-40 object-contain bg-white rounded-lg mb-4">
+                        <img src="images/onsite-bore-welding.png" alt="Portable bore welding machine" loading="lazy" class="w-full h-40 object-contain bg-white rounded-lg mb-4">
                         <h3 class="font-bold text-lg text-gray-900 group-hover:text-insitools-red transition">2. Bore Welding Machines</h3>
                         <p class="text-gray-500 text-xs mt-2 leading-relaxed">Service and rental of automated bore-welding systems that build up worn surfaces back to standard size before re-boring.</p>
                         <a href="products.html" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="inline-block mt-3 text-xs font-bold text-insitools-dark-blue hover:text-insitools-red underline underline-offset-4">BW1000 Auto Bore Welder</a>
@@ -89,7 +110,7 @@
 
                 <div onclick="openRequestForm('Flange Facers')" class="group bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition duration-200 cursor-pointer">
                     <div>
-                        <img src="images/rent-flange-facer.jpg" alt="Portable flange facer" loading="lazy" class="w-full h-40 object-contain bg-white rounded-lg mb-4">
+                        <img src="images/onsite-flange-facer.png" alt="Portable flange facer" loading="lazy" class="w-full h-40 object-contain bg-white rounded-lg mb-4">
                         <h3 class="font-bold text-lg text-gray-900 group-hover:text-insitools-red transition">3. Flange Facers</h3>
                         <p class="text-gray-500 text-xs mt-2 leading-relaxed">On-site flange facing service to fix leaking flange faces in piping systems at refineries, power plants, and drilling rigs.</p>
                         <a href="products.html" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="inline-block mt-3 text-xs font-bold text-insitools-dark-blue hover:text-insitools-red underline underline-offset-4">FF5300 Flange Facer</a>
@@ -106,7 +127,6 @@
 
                 <div onclick="openRequestForm('Milling Machines')" class="group bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition duration-200 cursor-pointer">
                     <div>
-                        <img src="images/rent-milling.jpg" alt="Portable gantry milling machine" loading="lazy" class="w-full h-40 object-contain bg-white rounded-lg mb-4">
                         <h3 class="font-bold text-lg text-gray-900 group-hover:text-insitools-red transition">4. Milling Machines</h3>
                         <p class="text-gray-500 text-xs mt-2 leading-relaxed">On-site portable milling service for flat surfacing and slotting of large machine bases and motor mounting platforms. Equipment is selected to suit each project.</p>
                     </div>
@@ -117,7 +137,7 @@
 
                 <div onclick="openRequestForm('Key Mills')" class="group bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition duration-200 cursor-pointer">
                     <div>
-                        <img src="images/rent-key-mill.jpg" alt="Portable key mill" loading="lazy" class="w-full h-40 object-contain bg-white rounded-lg mb-4">
+                        <img src="images/product-red-blue-91ec3f35a125.jpg" alt="CLIMAX KM3000 Key Mill" loading="lazy" class="w-full h-40 object-contain bg-white rounded-lg mb-4">
                         <h3 class="font-bold text-lg text-gray-900 group-hover:text-insitools-red transition">5. Key Mills</h3>
                         <p class="text-gray-500 text-xs mt-2 leading-relaxed">On-site keyway milling service to repair or cut new keyways on machine shafts without dismantling the components.</p>
                         <a href="products.html" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="inline-block mt-3 text-xs font-bold text-insitools-dark-blue hover:text-insitools-red underline underline-offset-4">KM3000 Key Mill</a>

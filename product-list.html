@@ -1,13 +1,34 @@
 <!DOCTYPE html>
+<!-- AVISION -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQPL0Y9WXF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VQPL0Y9WXF');
+        // Count WhatsApp clicks on every page
+        document.addEventListener('click', function (e) {
+            var a = e.target.closest && e.target.closest('a[href*="wa.me/"]');
+            if (a) gtag('event', 'whatsapp_click', { link_url: a.href.split('?')[0], page_path: location.pathname });
+        });
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INSITOOLS - Product Portfolio</title>
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <title>Product Portfolio – Milling, Valve &amp; Hydraulic Equipment | INSITOOLS</title>
+    <meta name="description" content="INSITOOLS product portfolio: gantry milling machines, valve grinding and lapping, pipe cutters, tube bevelers and hydraulic power units for on-site maintenance.">
+    <link rel="canonical" href="https://insitools.com/product-list.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="INSITOOLS">
+    <meta property="og:title" content="Product Portfolio – Milling, Valve &amp; Hydraulic Equipment | INSITOOLS">
+    <meta property="og:description" content="INSITOOLS product portfolio: gantry milling machines, valve grinding and lapping, pipe cutters, tube bevelers and hydraulic power units for on-site maintenance.">
+    <meta property="og:url" content="https://insitools.com/product-list.html">
+    <meta property="og:image" content="https://insitools.com/images/home.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="logo.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {

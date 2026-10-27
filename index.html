@@ -1,14 +1,148 @@
 <!DOCTYPE html>
+<!-- AVISION -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQPL0Y9WXF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VQPL0Y9WXF');
+        // Count WhatsApp clicks on every page
+        document.addEventListener('click', function (e) {
+            var a = e.target.closest && e.target.closest('a[href*="wa.me/"]');
+            if (a) gtag('event', 'whatsapp_click', { link_url: a.href.split('?')[0], page_path: location.pathname });
+        });
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INSITOOLS - Precision Portable Machining</title>
+    <title>INSITOOLS | Portable On-Site Machining Equipment – Singapore &amp; ASEAN</title>
+    <meta name="description" content="Portable line boring, flange facing, milling, bore welding, valve lapping and pipe cutting machines with on-site service and rental. Singapore HQ, support across ASEAN.">
     <link rel="canonical" href="https://insitools.com/">
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="INSITOOLS">
+    <meta property="og:title" content="INSITOOLS | Portable On-Site Machining Equipment – Singapore &amp; ASEAN">
+    <meta property="og:description" content="Portable line boring, flange facing, milling, bore welding, valve lapping and pipe cutting machines with on-site service and rental. Singapore HQ, support across ASEAN.">
+    <meta property="og:url" content="https://insitools.com/">
+    <meta property="og:image" content="https://insitools.com/images/home.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="logo.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://insitools.com/#organization",
+      "name": "INSITOOLS",
+      "url": "https://insitools.com/",
+      "logo": "https://insitools.com/logo.png",
+      "description": "Supplier of portable on-site machining, welding, valve repair, pipe cutting and hydraulic equipment, with on-site machining services and equipment rental.",
+      "email": "sales@assurich.com",
+      "telephone": "+65 6459 1069",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "9 Tagore Lane #04-28, 9@Tagore",
+        "addressLocality": "Singapore",
+        "postalCode": "787472",
+        "addressCountry": "SG"
+      },
+      "areaServed": [
+        "Singapore",
+        "Thailand",
+        "Southeast Asia"
+      ],
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Assurich Industries Pte Ltd",
+        "url": "https://www.assurich.com"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "sales@assurich.com",
+          "telephone": "+65 6459 1069",
+          "areaServed": [
+            "SG",
+            "TH"
+          ],
+          "availableLanguage": [
+            "English",
+            "Thai"
+          ]
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://insitools.com/#website",
+      "url": "https://insitools.com/",
+      "name": "INSITOOLS",
+      "publisher": {
+        "@id": "https://insitools.com/#organization"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is portable on-site machining?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Portable on-site machining uses machines that are carried to the job and mounted directly on the workpiece – such as line boring bars, flange facers and milling machines – so worn bores, flanges and surfaces can be repaired to workshop accuracy without dismantling the equipment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why machine on site instead of sending parts to a workshop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Machining in place avoids dismantling, lifting and transporting large components, so equipment returns to service sooner and plant downtime is reduced. It is often the only practical option for vessels, cranes, heavy plant and in-line piping."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which machines does INSITOOLS supply?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "INSITOOLS supplies portable line boring machines, flange facing machines, gantry and linear milling machines, automatic bore welders, in-situ valve grinding and lapping machines, split-frame pipe cutters and bevelers, and hydraulic power units and torque wrenches."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I rent equipment or hire an on-site machining service?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Besides equipment sales, INSITOOLS offers on-site machining services and equipment rental. Send your job details through the Services & Rentals page and the team will confirm availability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which industries and countries does INSITOOLS support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "INSITOOLS supports marine, offshore, oil & gas, mining, power generation, manufacturing, steel fabrication, automotive and food industries, with headquarters in Singapore and service teams in Thailand and across ASEAN."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get a quotation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open any product and use the Request a Quote form, or contact sales@assurich.com, +65 6459 1069 or WhatsApp +65 9818 3419 with your workpiece dimensions and job requirements."
+          }
+        }
+      ]
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -99,7 +233,7 @@
 
     <section class="py-16 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
-            <img src="images/home.jpg" alt="INSITOOLS portable machining and welding solutions" class="rounded-lg shadow-md w-full h-auto">
+            <img src="images/home.jpg" alt="INSITOOLS portable machining and welding solutions" class="rounded-lg shadow-md w-full h-80 object-cover">
         </div>
         <div>
             <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">About INSITOOLS</span>
@@ -193,46 +327,79 @@
             
             <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
-                    <img src="images/industry-oil-gas.jpg" alt="Offshore oil and gas platforms" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
-                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide text-center px-1">Oil &amp; Gas</div>
+                    <img alt="Defense industry" loading="lazy" src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Defense</div>
                 </div>
                 <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
-                    <img src="images/industry-power-wind.jpg" alt="Power plant cooling towers and a wind turbine" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
-                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide text-center px-1">Power &amp; Wind Energy</div>
+                    <img alt="Aerospace industry" loading="lazy" src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Aerospace</div>
                 </div>
                 <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
-                    <img src="images/industry-maritime.jpg" alt="Ship in dry dock for repair" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
-                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide text-center px-1">Marine &amp; Shipyard</div>
+                    <img alt="Food &amp; Beverage industry" loading="lazy" src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Food & Beverage</div>
                 </div>
                 <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
-                    <img src="images/industry-mining.jpg" alt="Mining haul truck" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
-                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide text-center px-1">Mining</div>
+                    <img alt="Manufacturing &amp;.. industry" loading="lazy" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide p-2">Manufacturing &..</div>
                 </div>
                 <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
-                    <img src="images/industry-construction.jpg" alt="Bulldozer on a construction site" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
-                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide text-center px-1">Construction &amp; Heavy Equipment</div>
+                    <img alt="Mining industry" loading="lazy" src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Mining</div>
                 </div>
                 <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
-                    <img src="images/industry-steel-metals.jpg" alt="Red-hot steel in a steel plant" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
-                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide text-center px-1">Steel &amp; Metals</div>
+                    <img alt="Oil &amp; Gas industry" loading="lazy" src="https://images.unsplash.com/photo-1535732759880-bbd5c7265e3f?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Oil & Gas</div>
                 </div>
                 <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
-                    <img src="images/industry-pulp-paper.jpg" alt="Pulp and paper mill" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
-                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide text-center px-1">Pulp &amp; Paper</div>
+                    <img alt="Power Generation industry" loading="lazy" src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide text-center px-1">Power Generation</div>
                 </div>
                 <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
-                    <img src="images/industry-sugar-mills.jpg" alt="Sugar mill cane crushing rollers" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
-                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide text-center px-1">Sugar Mills</div>
+                    <img alt="Maritime industry" loading="lazy" src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Maritime</div>
                 </div>
                 <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
-                    <img src="images/industry-manufacturing.jpg" alt="Machinist operating a lathe" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
-                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide text-center px-1">Manufacturing &amp; Engineering</div>
+                    <img alt="Transportation industry" loading="lazy" src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Transportation</div>
                 </div>
-                <div class="relative group overflow-hidden rounded h-32 cursor-pointer">
-                    <img src="images/industry-fabrication.jpg" alt="Plasma cutting steel plate in a fabrication shop" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
-                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide text-center px-1">Steel Fabrication</div>
+                <div class="relative group overflow-hidden rounded h-32 cursor-pointer bg-gray-500">
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center font-bold text-sm tracking-wide">Utilities</div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1 text-center">FAQ</span>
+            <h2 class="text-2xl font-bold mb-8 text-insitools-dark text-center">Frequently Asked Questions</h2>
+            <div class="space-y-3">
+                <details class="bg-white border border-gray-200 rounded-lg p-5" open>
+                    <summary class="font-semibold text-insitools-dark cursor-pointer">What is portable on-site machining?</summary>
+                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">Portable on-site machining uses machines that are carried to the job and mounted directly on the workpiece – such as line boring bars, flange facers and milling machines – so worn bores, flanges and surfaces can be repaired to workshop accuracy without dismantling the equipment.</p>
+                </details>
+                <details class="bg-white border border-gray-200 rounded-lg p-5" open>
+                    <summary class="font-semibold text-insitools-dark cursor-pointer">Why machine on site instead of sending parts to a workshop?</summary>
+                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">Machining in place avoids dismantling, lifting and transporting large components, so equipment returns to service sooner and plant downtime is reduced. It is often the only practical option for vessels, cranes, heavy plant and in-line piping.</p>
+                </details>
+                <details class="bg-white border border-gray-200 rounded-lg p-5">
+                    <summary class="font-semibold text-insitools-dark cursor-pointer">Which machines does INSITOOLS supply?</summary>
+                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">INSITOOLS supplies portable line boring machines, flange facing machines, gantry and linear milling machines, automatic bore welders, in-situ valve grinding and lapping machines, split-frame pipe cutters and bevelers, and hydraulic power units and torque wrenches.</p>
+                </details>
+                <details class="bg-white border border-gray-200 rounded-lg p-5">
+                    <summary class="font-semibold text-insitools-dark cursor-pointer">Can I rent equipment or hire an on-site machining service?</summary>
+                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">Yes. Besides equipment sales, INSITOOLS offers on-site machining services and equipment rental. Send your job details through the Services &amp; Rentals page and the team will confirm availability.</p>
+                </details>
+                <details class="bg-white border border-gray-200 rounded-lg p-5">
+                    <summary class="font-semibold text-insitools-dark cursor-pointer">Which industries and countries does INSITOOLS support?</summary>
+                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">INSITOOLS supports marine, offshore, oil &amp; gas, mining, power generation, manufacturing, steel fabrication, automotive and food industries, with headquarters in Singapore and service teams in Thailand and across ASEAN.</p>
+                </details>
+                <details class="bg-white border border-gray-200 rounded-lg p-5">
+                    <summary class="font-semibold text-insitools-dark cursor-pointer">How do I get a quotation?</summary>
+                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">Open any product and use the Request a Quote form, or contact sales@assurich.com, +65 6459 1069 or WhatsApp +65 9818 3419 with your workpiece dimensions and job requirements.</p>
+                </details>
+            </div>
+            <p class="text-center mt-8"><a href="product/index.html" class="inline-block bg-insitools-blue text-white text-xs font-bold py-3 px-5 rounded uppercase tracking-wider hover:bg-opacity-90">Browse All Models</a></p>
         </div>
     </section>
 
@@ -280,15 +447,16 @@
                     <li><a href="products.html" class="hover:text-white transition">Flange Facers</a></li>
                     <li><a href="products.html" class="hover:text-white transition">Milling Machines</a></li>
                     <li><a href="products.html" class="hover:text-white transition">Valve Repair Tools</a></li>
+                    <li><a href="product/index.html" class="hover:text-white transition">All Models</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white font-bold text-sm mb-4">Industries</h4>
                 <ul class="space-y-2 text-gray-400">
-                    <li><a href="#" class="hover:text-white transition">Oil &amp; Gas</a></li>
-                    <li><a href="#" class="hover:text-white transition">Marine &amp; Shipyard</a></li>
-                    <li><a href="#" class="hover:text-white transition">Power &amp; Wind Energy</a></li>
-                    <li><a href="#" class="hover:text-white transition">Construction &amp; Heavy Equipment</a></li>
+                    <li><a href="#" class="hover:text-white transition">Aerospace</a></li>
+                    <li><a href="#" class="hover:text-white transition">Maritime</a></li>
+                    <li><a href="#" class="hover:text-white transition">Power Generation</a></li>
+                    <li><a href="#" class="hover:text-white transition">Transportation</a></li>
                 </ul>
             </div>
             <div>
@@ -313,15 +481,15 @@ Singapore 787472</p>
 
     <script>
         const featuredProductMatches = [
-            { name: 'Portable Line Boring Machine', model: 'PB-300', key: 'PB300super', image: 'images/pb300super.jpg' },
-            { name: 'Flange Facing Machine', model: 'FF-500', key: 'FDG1650', image: 'images/product-red-blue-ae03cd6c6338.jpg' },
-            { name: 'In-Situ Gate Valve Lapping Machine', model: 'GV-50', key: 'Gate-Valve-Lapping', image: 'images/product-red-blue-c0021aa906e1.jpg' },
+            { name: 'PB300 Super Portable Line Boring', model: 'PB300 Super', key: 'PB300super', image: 'images/pb300super.jpg' },
+            { name: 'FDG1650 Flange Facing Machine', model: 'FDG1650', key: 'FDG1650', image: 'images/product-red-blue-ae03cd6c6338.jpg' },
+            { name: 'In-Situ Gate Valve Lapping Machine', model: 'Gate Valve Lapping', key: 'Gate-Valve-Lapping', image: 'images/product-red-blue-c0021aa906e1.jpg' },
             { name: 'Portable Plate Bevel Machine', model: 'Plate Bevel Machine', key: 'Plate-Bevel-Machine', image: 'images/product-red-blue-4cc2df0eb19e.jpg' },
-            { name: 'Mini Flange Facer', model: 'FF-25', key: 'PFM165', image: 'images/product-red-blue-1fe41edf59a9.jpg' },
+            { name: 'PFM165 Mini Flange Facer', model: 'PFM165', key: 'PFM165', image: 'images/product-red-blue-1fe41edf59a9.jpg' },
             { name: 'ABW 350/360 Bore Welder', model: 'ABW 350/360', key: 'ABW350-360', image: 'images/product-red-blue-78f84f4ba1cd.jpg' },
-            { name: 'Pipe Cold Cutting & Bevel Machine', model: 'CP-20', key: 'Pipe-Cold-Cutting', image: 'images/product-red-blue-2dae5dcea1df.jpg' },
+            { name: 'Pipe Cold Cutting & Bevel Machine', model: 'Pipe Cutters', key: 'Pipe-Cold-Cutting', image: 'images/product-red-blue-2dae5dcea1df.jpg' },
             { name: 'PB 800BL/90 Portable Boring Machine', model: 'PB 800BL/90', key: 'PB800BL-90', image: 'images/product-red-blue-3e7fc6cefcd2.jpg' },
-            { name: 'Torque Wrench Pump', model: 'TP-700', key: 'LP3-Pump', image: 'images/product-red-blue-56441013b531.jpg' },
+            { name: 'LP3 Series Torque Wrench Pump', model: 'LP3 Series', key: 'LP3-Pump', image: 'images/product-red-blue-56441013b531.jpg' },
             { name: 'On-Site Lathe Machine', model: 'Lathe Machine', key: 'Lathe-Machine', image: 'images/product-red-blue-27493aa7bd17.jpg' }
         ];
 

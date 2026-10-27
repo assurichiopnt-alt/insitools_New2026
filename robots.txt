@@ -1,5 +1,19 @@
+# AVISION
 User-agent: *
 Allow: /
 Disallow: /insitools_edit.html
+Disallow: /tools/
+
+# AI answer engines are welcome to read the site
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
 
 Sitemap: https://insitools.com/sitemap.xml

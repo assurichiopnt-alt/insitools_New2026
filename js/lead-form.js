@@ -118,6 +118,13 @@
 
         try {
             await fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: payload });
+            // GA4: count the lead (product only – no personal data is sent to Google)
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'generate_lead', {
+                    product_name: lead.product || 'General',
+                    form_page: location.pathname
+                });
+            }
             clearForm(form);
             showStatus(form, 'success', SUCCESS_TEXT, result.whatsappMessage);
         } catch (error) {
