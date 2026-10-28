@@ -28,7 +28,7 @@ window.INSITOOLS_PRODUCT_URLS = {
   "BB4500": "https://insitools.com/product/portable-boring-machine-pb-400.html",
   "BB6100": "https://insitools.com/product/portable-boring-machine-pb-600.html",
   "BB7100": "https://insitools.com/product/heavy-boring-machine-pb-800.html",
-  "PB300super": "https://insitools.com/product/portable-line-boring-machine-pb-300.html",
+  "PB300super": "https://insitools.com/product/portable-line-boring-machine-pb-300super.html",
   "FF5300": "https://insitools.com/product/flange-facer-pff-25.html",
   "FF6300": "https://insitools.com/product/flange-facer-pff-150-610.html",
   "FF7200": "https://insitools.com/product/flange-facer-pff-150-1000.html",
