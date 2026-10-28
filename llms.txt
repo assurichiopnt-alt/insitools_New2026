@@ -59,12 +59,12 @@ Split-frame and clamshell pipe cutters cold-cut and bevel in-line pipe for weld 
 
 ## Flange Facers
 Portable flange facing machines re-machine flange sealing faces, gasket grooves and heat-exchanger faces on site, restoring a leak-free seal without removing the pipe, vessel or valve.
-- [Flange Facing Machine FF-500](https://insitools.com/product/flange-facing-machine-ff-500.html)
-- [Mini Flange Facer FF-25](https://insitools.com/product/mini-flange-facer-ff-25.html)
-- [Flange Facer FF-25](https://insitools.com/product/flange-facer-ff-25.html)
+- [Flange Facing Machine PFF-500](https://insitools.com/product/flange-facing-machine-pff-500.html)
+- [Mini Flange Facer PFF-25](https://insitools.com/product/mini-flange-facer-pff-25.html)
+- [Flange Facer PFF-25](https://insitools.com/product/flange-facer-pff-25.html)
 - [Flange Facer PFF-150/610](https://insitools.com/product/flange-facer-pff-150-610.html)
 - [Flange Facer PFF-150/1000](https://insitools.com/product/flange-facer-pff-150-1000.html)
-- [Heavy Flange Facer FF-500](https://insitools.com/product/heavy-flange-facer-ff-500.html)
+- [Heavy Flange Facer PFF-500](https://insitools.com/product/heavy-flange-facer-pff-500.html)
 
 ## Hydraulic Tools
 High-pressure hydraulic tools – power units, torque wrenches, pumps and cylinders – provide controlled force for bolting, lifting and maintenance work in the field.
