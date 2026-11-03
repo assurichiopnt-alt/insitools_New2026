@@ -1,0 +1,36 @@
+# AVISION · Rev0
+# Tells Bing (and the AI search tools that use Bing, such as ChatGPT and Copilot)
+# about every page in sitemap.xml each time the website is updated on GitHub.
+name: IndexNow ping
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+      - 'llms.txt'
+  workflow_dispatch:
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Wait for GitHub Pages to publish the new version
+        run: sleep 180
+
+      - name: Send sitemap URLs to IndexNow
+        env:
+          HOST: insitools.com
+          KEY: a4ccb7d997ac1c88f880c5d9483602db
+        run: |
+          urls=$(grep -oE '<loc>[^<]+</loc>' sitemap.xml | sed -E 's#</?loc>##g')
+          count=$(printf '%s\n' "$urls" | grep -c . || true)
+          echo "Submitting $count URLs"
+          payload=$(printf '%s\n' "$urls" | python3 -c 'import json,os,sys; u=[l.strip() for l in sys.stdin if l.strip()]; print(json.dumps({"host":os.environ["HOST"],"key":os.environ["KEY"],"keyLocation":"https://"+os.environ["HOST"]+"/"+os.environ["KEY"]+".txt","urlList":u}))')
+          code=$(curl -s -o response.txt -w '%{http_code}' -X POST 'https://api.indexnow.org/indexnow' \
+            -H 'Content-Type: application/json; charset=utf-8' --data "$payload")
+          echo "IndexNow responded $code"; cat response.txt || true
+          case "$code" in 200|202) echo "OK";; *) echo "::warning::IndexNow returned $code";; esac
