@@ -438,7 +438,7 @@ function main() {
 
   // sitemap
   const core = [
-    ['', '1.0'], ['products.html', '0.9'], ['product/index.html', '0.9'], ['product-list.html', '0.7'],
+    ['', '1.0'], ['products.html', '0.9'], ['pb300-super.html', '0.9'], ['product/index.html', '0.9'], ['product-list.html', '0.7'],
     ['service-rent.html', '0.8'], ['about.html', '0.6'],
   ];
   const urls = core.map(([u, pr]) => ({ loc: SITE + '/' + u, pr }))
@@ -459,9 +459,13 @@ Contact: ${COMPANY.email} · ${COMPANY.phone} · WhatsApp +${COMPANY.whatsapp} �
 
 ## Key pages
 - [Home](${SITE}/): overview of INSITOOLS portable machining solutions
+- [PB-300Super](${SITE}/pb300-super.html): portable line boring and bore welding machine – service, rental or purchase
 - [All models](${SITE}/product/index.html): every model with specifications
 - [Services & Rentals](${SITE}/service-rent.html): on-site machining services and equipment rental
 - [About](${SITE}/about.html): company background and contacts
+
+## PB-300Super portable line boring & bore welding
+The PB-300Super is a portable line boring machine for on-site repair of worn bores, covering line boring from Ø40 to 300 mm and bore welding from Ø45 to 160 mm. It is available as an on-site machining service, as a rental, or for purchase, with support in Singapore, Thailand, Malaysia, Indonesia, Vietnam and the Philippines. Details: ${SITE}/pb300-super.html
 
 ${Object.entries(groups).map(([cat, items]) => `## ${cat}
 ${catInfo(cat).what}

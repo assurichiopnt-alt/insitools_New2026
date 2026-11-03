@@ -78,6 +78,33 @@
         });
     }
 
+    // Page path plus where the visitor came from, e.g.
+    // "/pb300-super.html | from: chatgpt.com | utm: pb300_launch".
+    // Only the referrer's domain and utm_source/utm_campaign are used – no personal data.
+    function pageWithSource() {
+        const params = new URLSearchParams(location.search);
+        const utm = [params.get('utm_source'), params.get('utm_campaign')]
+            .map(value => (value || '').trim())
+            .filter(Boolean);
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(key => params.delete(key));
+        const query = params.toString();
+
+        let from = 'direct';
+        try {
+            if (document.referrer) {
+                from = new URL(document.referrer).hostname || 'direct';
+            }
+        } catch (error) {
+            from = 'direct';
+        }
+
+        let page = location.pathname + (query ? '?' + query : '') + ' | from: ' + from;
+        if (utm.length) {
+            page += ' | utm: ' + utm.join(' / ');
+        }
+        return page;
+    }
+
     async function handleSubmit(event) {
         event.preventDefault();
         const form = event.currentTarget;
@@ -107,7 +134,7 @@
         const honeypot = form.querySelector('input[name="website"]');
         const payload = new URLSearchParams({
             ...lead,
-            page: location.pathname + location.search,
+            page: pageWithSource(),
             website: honeypot ? honeypot.value : ''
         });
 
