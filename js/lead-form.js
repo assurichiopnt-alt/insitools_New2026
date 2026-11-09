@@ -1,5 +1,5 @@
 // Sends "Request a Quotation" forms to the Google Apps Script lead endpoint,
-// with WhatsApp offered as a follow-up (on success) or fallback (on failure).
+// so the sales team can call the customer back. WhatsApp is only a fallback on failure.
 //
 // A form opts in with data-lead-form="<global function name>". That function
 // returns either { error: '...' } or
@@ -153,7 +153,7 @@
                 });
             }
             clearForm(form);
-            showStatus(form, 'success', SUCCESS_TEXT, result.whatsappMessage);
+            showStatus(form, 'success', SUCCESS_TEXT);
         } catch (error) {
             showStatus(form, 'error', FAILURE_TEXT, result.whatsappMessage);
         } finally {
