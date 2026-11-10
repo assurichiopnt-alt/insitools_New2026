@@ -2,7 +2,7 @@
 
 > INSITOOLS supplies portable on-site machining, welding, valve repair, pipe cutting and hydraulic equipment, with on-site machining services and equipment rental. Headquartered in Singapore (Assurich Industries Pte Ltd) with service teams in Thailand and across ASEAN, backed by 43+ years of industrial equipment distribution and after-sales service.
 
-Contact: sales@assurich.com · +65 6459 1069 · WhatsApp +6598183419 · 9 Tagore Lane #04-28, 9@Tagore, Singapore 787472
+Contact: sales@assurich.com · +65 6459 1069 · WhatsApp +65 9818 3419 · 9 Tagore Lane #04-28, 9@Tagore, Singapore 787472
 
 ## Key pages
 - [Home](https://insitools.com/): overview of INSITOOLS portable machining solutions
@@ -49,7 +49,6 @@ Automatic bore welders build up worn bores and faces with a controlled weld over
 
 ## Valve Solution
 In-situ valve grinding and lapping machines restore the sealing seats of gate, globe and safety valves without removing the valve from the line.
-- [In-Situ Gate Valve Lapping Machine GV-50](https://insitools.com/product/in-situ-gate-valve-lapping-machine-gv-50.html)
 - [In-Situ Globe Valve (Flat Seat) Grinding & Lapping Machine GL-80](https://insitools.com/product/in-situ-globe-valve-flat-seat-grinding-lapping-machine-gl-80.html)
 - [Valve Lapping/Grinding Machines GV-50](https://insitools.com/product/valve-lapping-grinding-machines-gv-50.html)
 - [Enclosed Wedge Lapping Cabinet WL-100/400-E](https://insitools.com/product/enclosed-wedge-lapping-cabinet-wl-100-400-e.html)
@@ -57,13 +56,11 @@ In-situ valve grinding and lapping machines restore the sealing seats of gate, g
 ## Pipe Cutting
 Split-frame and clamshell pipe cutters cold-cut and bevel in-line pipe for weld preparation, without heat, sparks or the need to remove the pipe.
 - [Portable Plate Bevel Machine](https://insitools.com/product/portable-plate-bevel-machine.html)
-- [Pipe Cold Cutting & Bevel Machine CP-20](https://insitools.com/product/pipe-cold-cutting-bevel-machine-cp-20.html)
 - [Clamshell Pipe Cutters CP-20](https://insitools.com/product/clamshell-pipe-cutters-cp-20.html)
 - [Tube Expanders & Bevelers](https://insitools.com/product/tube-expanders-bevelers.html)
 
 ## Flange Facers
 Portable flange facing machines re-machine flange sealing faces, gasket grooves and heat-exchanger faces on site, restoring a leak-free seal without removing the pipe, vessel or valve.
-- [Flange Facing Machine PFF-500](https://insitools.com/product/flange-facing-machine-pff-500.html)
 - [Mini Flange Facer PFF-25](https://insitools.com/product/mini-flange-facer-pff-25.html)
 - [Flange Facer PFF-25](https://insitools.com/product/flange-facer-pff-25.html)
 - [Flange Facer PFF-150/610](https://insitools.com/product/flange-facer-pff-150-610.html)

@@ -33,6 +33,7 @@ const COMPANY = {
   country: 'SG',
   phone: '+65 6459 1069',
   whatsapp: '6598183419',
+  whatsappDisplay: '+65 9818 3419',
   email: 'sales@assurich.com',
 };
 
@@ -52,7 +53,7 @@ function loadProducts() {
 
   // Publish only models the live site actually shows (linked from a page) or that have a real photo.
   // Older placeholder entries without a photo stay hidden until their data is confirmed.
-  const pages = ['index.html', 'products.html', 'product-list.html', 'service-rent.html']
+  const pages = ['index.html', 'products.html', 'service-rent.html']
     .map((f) => fs.readFileSync(path.join(ROOT, f), 'utf8')).join('\n');
   const shown = new Set();
   for (const m of pages.matchAll(/model=([A-Za-z0-9-]+)/g)) shown.add(m[1]);
@@ -373,6 +374,13 @@ function catalogue(products) {
   });
 }
 
+// Pages of duplicate products that were merged into another model (see productAliases in product-detail.html)
+const RETIRED_PAGES = {
+  'product/flange-facing-machine-pff-500.html': 'FF8200',
+  'product/in-situ-gate-valve-lapping-machine-gv-50.html': 'Valve-Lapping-Grinding',
+  'product/pipe-cold-cutting-bevel-machine-cp-20.html': 'Clamshell-Pipe-Cutters',
+};
+
 // ---------- 7. redirect pages for old website URLs ----------
 function redirectPage(target, label) {
   return `<!DOCTYPE html>
@@ -409,6 +417,11 @@ function main() {
     write(`product/${p.slug}.html`, productPage(p, related));
   }
   write('product/index.html', catalogue(products));
+  const byKey = Object.fromEntries(products.map((p) => [p.key, p]));
+  for (const [rel, key] of Object.entries(RETIRED_PAGES)) {
+    if (!byKey[key]) throw new Error('Merged product not found: ' + key);
+    write(rel, redirectPage(byKey[key].url, byKey[key].name));
+  }
 
   // redirects from old insitools.com URLs (first model wins when shared)
   const redirects = {};
@@ -419,7 +432,7 @@ function main() {
     redirects[rel] = p;
   }
   const extra = ['boring-machine.html', 'facing-machine.html', 'bore-welder.html', 'pipe-cutters.html',
-    'hydraulic-tools.html', 'valve-grinding-machine.html'];
+    'hydraulic-tools.html', 'valve-grinding-machine.html', 'product-list.html'];
   for (const rel of Object.keys(redirects)) {
     const p = redirects[rel];
     if (rel.split('/').length === 1) {
@@ -438,7 +451,7 @@ function main() {
 
   // sitemap
   const core = [
-    ['', '1.0'], ['products.html', '0.9'], ['pb300-super.html', '0.9'], ['product/index.html', '0.9'], ['product-list.html', '0.7'],
+    ['', '1.0'], ['products.html', '0.9'], ['pb300-super.html', '0.9'], ['product/index.html', '0.9'],
     ['service-rent.html', '0.8'], ['about.html', '0.6'],
   ];
   const urls = core.map(([u, pr]) => ({ loc: SITE + '/' + u, pr }))
@@ -455,7 +468,7 @@ function main() {
 
 > INSITOOLS supplies portable on-site machining, welding, valve repair, pipe cutting and hydraulic equipment, with on-site machining services and equipment rental. Headquartered in Singapore (${COMPANY.legal}) with service teams in Thailand and across ASEAN, backed by 43+ years of industrial equipment distribution and after-sales service.
 
-Contact: ${COMPANY.email} · ${COMPANY.phone} · WhatsApp +${COMPANY.whatsapp} · ${COMPANY.street}, ${COMPANY.city} ${COMPANY.postal}
+Contact: ${COMPANY.email} · ${COMPANY.phone} · WhatsApp ${COMPANY.whatsappDisplay} · ${COMPANY.street}, ${COMPANY.city} ${COMPANY.postal}
 
 ## Key pages
 - [Home](${SITE}/): overview of INSITOOLS portable machining solutions
