@@ -381,6 +381,9 @@ const RETIRED_PAGES = {
   'product/pipe-cold-cutting-bevel-machine-cp-20.html': 'Clamshell-Pipe-Cutters',
 };
 
+// Products taken off the site for now (the lathe listing showed a PB-400 boring machine photo)
+const HIDDEN_PAGES = ['product/on-site-lathe-machine.html'];
+
 // ---------- 7. redirect pages for old website URLs ----------
 function redirectPage(target, label) {
   return `<!DOCTYPE html>
@@ -418,6 +421,8 @@ function main() {
   }
   write('product/index.html', catalogue(products));
   const byKey = Object.fromEntries(products.map((p) => [p.key, p]));
+  // Hidden until real photo and specs are available: old page goes to the Products page
+  for (const rel of HIDDEN_PAGES) write(rel, redirectPage(SITE + '/products.html', 'Products'));
   for (const [rel, key] of Object.entries(RETIRED_PAGES)) {
     if (!byKey[key]) throw new Error('Merged product not found: ' + key);
     write(rel, redirectPage(byKey[key].url, byKey[key].name));

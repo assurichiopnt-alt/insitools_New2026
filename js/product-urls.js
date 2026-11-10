@@ -19,7 +19,6 @@ window.INSITOOLS_PRODUCT_URLS = {
   "PFM165": "https://insitools.com/product/mini-flange-facer-pff-25.html",
   "ABW350-360": "https://insitools.com/product/abw-350-360-bore-welder.html",
   "PB800BL-90": "https://insitools.com/product/pb-800bl-90-portable-boring-machine.html",
-  "Lathe-Machine": "https://insitools.com/product/on-site-lathe-machine.html",
   "LP3-Pump": "https://insitools.com/product/torque-wrench-pump-tp-700.html",
   "BB5000": "https://insitools.com/product/portable-boring-machine-pb-200.html",
   "BB4500": "https://insitools.com/product/portable-boring-machine-pb-400.html",
