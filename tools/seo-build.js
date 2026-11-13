@@ -448,6 +448,23 @@ function main() {
   }
   for (const rel of extra) if (!redirects[rel]) write(rel, redirectPage(SITE + '/products.html', 'Products'));
 
+  // old website URLs reported as 404 in Search Console (category pages point to the catalogue section)
+  const cats = new Set(products.map((p) => p.cat));
+  const catTarget = (cat) => {
+    if (!cats.has(cat)) throw new Error('Category not found for redirect: ' + cat);
+    return [SITE + '/product/index.html#' + slugify(cat), cat];
+  };
+  const oldPages = {
+    'about-us.html': [SITE + '/about.html', 'About'],
+    'products/boring-machine.html': catTarget('Boring Machines'),
+    'products/milling-machine.html': catTarget('Milling Machines'),
+    'products/hydraulic-tools.html': catTarget('Hydraulic Tools'),
+  };
+  for (const [rel, [target, label]] of Object.entries(oldPages)) {
+    if (redirects[rel] || extra.includes(rel)) continue;
+    write(rel, redirectPage(target, label));
+  }
+
   // model -> static page map, used by product-detail.html for its canonical link
   const urlMap = {};
   for (const p of products) urlMap[p.key] = p.url;
